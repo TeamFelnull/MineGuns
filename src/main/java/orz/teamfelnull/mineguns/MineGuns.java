@@ -17,7 +17,7 @@ import orz.teamfelnull.mineguns.proxy.CommonProxy;
 
 @Mod("mineguns")
 public class MineGuns {
-
+	public static String MODID = "mineguns";
 	public static final Logger LOGGER = LogManager.getLogger();
 	//プロキシ↓
 	public static final CommonProxy proxy = DistExecutor.runForDist(() -> () -> new ClientProxy(),
@@ -36,6 +36,7 @@ public class MineGuns {
 	}
 
 	private void setup(final FMLCommonSetupEvent event) {
+		LOGGER.info("SetUping...");
 		proxy.setup();
 
 	}
