@@ -16,6 +16,7 @@ public class MGItems {
 	public static Item TEST_GUN = new GunItem(new Item.Properties().group(MGItemGroup.MINEGUN_TAB), MGGuns.TEST)
 			.setRegistryName(MineGuns.MODID, "test_gun");
 	public static Item IronGear = new Item(new Item.Properties().group(MGItemGroup.MINEGUN_TAB))
+
 			.setRegistryName(MineGuns.MODID, "iron_gear");
 
 	public static void registerItem(IForgeRegistry<Item> r) {
