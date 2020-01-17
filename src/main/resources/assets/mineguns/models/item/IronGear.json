@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "mineguns:item/irongear"
+    "layer0": "mineguns:irongear/iron_gear"
   }
 }
