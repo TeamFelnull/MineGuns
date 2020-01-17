@@ -26,7 +26,7 @@ public class MineGuns {
 		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::processIMC);
 
 		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
-		System.out.println("test");
+		System.out.println("テスト");
 	}
 
 	private void setup(final FMLCommonSetupEvent event) {
