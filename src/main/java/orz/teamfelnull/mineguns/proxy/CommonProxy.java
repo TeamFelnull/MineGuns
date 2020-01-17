@@ -1,7 +1,10 @@
 package orz.teamfelnull.mineguns.proxy;
 
-public class CommonProxy {
-	public void setup() {
+import orz.teamfelnull.mineguns.packet.PacketHandler;
 
+public class CommonProxy {
+
+	public void setup() {
+		PacketHandler.init();
 	}
 }
