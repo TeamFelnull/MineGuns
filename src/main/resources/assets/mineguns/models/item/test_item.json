@@ -4,9 +4,3 @@
     "layer0": "mineguns:item/test"
   }
 }
-{
-	"parent": "item/generated",
-	"textures": {
-		"layer0": "mineguns:item/IronGear"
-	}
-}
