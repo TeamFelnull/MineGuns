@@ -22,7 +22,7 @@ public class MineGuns {
 	//プロキシ↓
 	public static final CommonProxy proxy = DistExecutor.runForDist(() -> () -> new ClientProxy(),
 			() -> () -> new CommonProxy());
-
+//むねにかけてむえんい
 	public MineGuns() {
 
 		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
