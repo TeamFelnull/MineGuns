@@ -1,3 +1,11 @@
 {
+//Item
+  "item.mineguns.test_item": "Test Item",
+
+//Item Tooltip
+  "item.modifiers.mainoroff": "When in main hand or off hand:",
+  "attribute.name.generic.damegecorrection": "%s Bullet Damage",
+//CreativeTab
   "itemGroup.minegun": "Mine Guns"
+  
 }

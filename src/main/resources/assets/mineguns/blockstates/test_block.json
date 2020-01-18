@@ -1,0 +1,5 @@
+{
+    "variants": {
+        "": { "model": "mineguns:block/test_block" }
+    }
+}

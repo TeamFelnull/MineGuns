@@ -1,3 +1,11 @@
 {
+//Item
+  "item.mineguns.test_item": "テストアイテム",
+
+//Item Tooltip
+  "item.modifiers.mainoroff": "利き手またはオフハンドに持ったとき:",
+
+//CreativeTab
   "itemGroup.minegun": "Mine Guns"
+  
 }
