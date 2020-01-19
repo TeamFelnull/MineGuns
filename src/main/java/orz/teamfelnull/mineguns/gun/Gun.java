@@ -1,5 +1,16 @@
 package orz.teamfelnull.mineguns.gun;
 
+import java.util.Random;
+
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.projectile.SnowballEntity;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.SoundCategory;
+import net.minecraft.util.SoundEvents;
+import net.minecraft.world.World;
+
 public class Gun {
 	private String Name;//名前
 	private GunTyape GunTyape;//銃タイプ
@@ -11,9 +22,10 @@ public class Gun {
 	private float Penetrating;//貫通力、何体まで貫通するか
 	private float Blaze;//連射力、秒間何発か
 	private int Endurance;//耐久力
+	private float Accuracy;//精度
 
 	public Gun(String name, GunTyape guntyape, boolean semi, int capacity, float damege, float knockback,
-			float propulsion, float penetrating, float blaze, int endurance) {
+			float propulsion, float penetrating, float blaze, int endurance, float accuracy) {
 		this.Name = name;
 		this.Semi = semi;
 		this.Capacity = capacity;
@@ -24,6 +36,19 @@ public class Gun {
 		this.Blaze = blaze;
 		this.GunTyape = guntyape;
 		this.Endurance = endurance;
+		this.Accuracy = accuracy;
+	}
+
+	public void shot(ItemStack item, Entity attacker, World worldIn) {
+		worldIn.playSound((PlayerEntity) null, attacker.func_226277_ct_(), attacker.func_226278_cu_(),
+				attacker.func_226281_cx_(), SoundEvents.ENTITY_SNOWBALL_THROW, SoundCategory.NEUTRAL, 0.5F,
+				0.4F / (new Random().nextFloat() * 0.4F + 0.8F));
+		if (!worldIn.isRemote) {
+			SnowballEntity snowballentity = new SnowballEntity(worldIn, (LivingEntity) attacker);
+			snowballentity.func_213884_b(item);
+			snowballentity.shoot(attacker, attacker.rotationPitch, attacker.rotationYaw, 0.0F, 1.5F, 1.0F);
+			worldIn.addEntity(snowballentity);
+		}
 	}
 
 	public String getName() {
@@ -63,6 +88,10 @@ public class Gun {
 	}
 
 	public int getEndurance() {
-		return (int) (this.Endurance * GunTyape.getEndurance());
+		return (int) (this.Endurance * GunTyape.getEnduranceCorrection());
+	}
+
+	public float getAccuracy() {
+		return this.Accuracy * GunTyape.getAccuracyCorrection();
 	}
 }

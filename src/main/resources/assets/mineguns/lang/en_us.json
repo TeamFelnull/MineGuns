@@ -12,6 +12,7 @@
   "attribute.name.generic.blaze": "%s Blaze",
   "attribute.name.generic.endurance": "%s Endurance",
   "attribute.name.generic.capacity": "%s Capacity",
+  "attribute.name.generic.accuracy": "%s Bullet Accuracy",
 //GunType
   "gun.tyape.hand_gun.name": "Hand gun",
   "gun.tyape.rifl_gun.name": "Rifle",

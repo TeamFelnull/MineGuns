@@ -41,6 +41,9 @@ public class GunItem extends Item {
 				" " + I18n.format("attribute.name.generic.damegecorrection", Gun.getDamege()))
 						.applyTextStyle(TextFormatting.DARK_RED));
 		tooltip.add(new TranslationTextComponent(
+				" " + I18n.format("attribute.name.generic.accuracy", Gun.getAccuracy()))
+						.applyTextStyle(TextFormatting.DARK_RED));
+		tooltip.add(new TranslationTextComponent(
 				" " + I18n.format("attribute.name.generic.capacity", Gun.getCapacity()))
 						.applyTextStyle(TextFormatting.DARK_RED));
 		tooltip.add(new TranslationTextComponent(

@@ -12,6 +12,8 @@
   "attribute.name.generic.blaze": "連射力 秒間%s発",
   "attribute.name.generic.endurance": "耐久力 %s",
   "attribute.name.generic.capacity": "装弾数 %s発",
+  "attribute.name.generic.accuracy": "銃弾精度 %s",
+  
 //GunType
   "gun.tyape.hand_gun.name": "拳銃",
   "gun.tyape.rifl_gun.name": "小銃",

@@ -9,17 +9,19 @@ public class GunTyape {
 	private float PropulsionCorrection;//推進力
 	private float PenetratingCorrection;//貫通力
 	private float BlazeCorrection;//連射力
-	private float Endurance;//耐久力
+	private float EnduranceCorrection;//耐久力
+	private float AccuracyCorrection;//精度
 
 	public GunTyape(String name, float damegecorrection, float knockbackcorrection, float propulsioncorrection,
-			float penetratingcorrection, float blazecorrection, float endurancection) {
+			float penetratingcorrection, float blazecorrection, float endurancection, float accuraccorrectiony) {
 		this.Name = name;
 		this.DamegeCorrection = damegecorrection;
 		this.KnockbackCorrection = knockbackcorrection;
 		this.PropulsionCorrection = propulsioncorrection;
 		this.PenetratingCorrection = penetratingcorrection;
 		this.BlazeCorrection = blazecorrection;
-		this.Endurance = endurancection;
+		this.EnduranceCorrection = endurancection;
+		this.AccuracyCorrection = accuraccorrectiony;
 	}
 
 	public String getName() {
@@ -50,7 +52,11 @@ public class GunTyape {
 		return this.BlazeCorrection;
 	}
 
-	public float getEndurance() {
-		return this.Endurance;
+	public float getEnduranceCorrection() {
+		return this.EnduranceCorrection;
+	}
+
+	public float getAccuracyCorrection() {
+		return this.AccuracyCorrection;
 	}
 }
