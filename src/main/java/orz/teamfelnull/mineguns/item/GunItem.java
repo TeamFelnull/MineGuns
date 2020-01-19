@@ -34,11 +34,29 @@ public class GunItem extends Item {
 	public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip,
 			ITooltipFlag flagIn) {
 
-		tooltip.add(new TranslationTextComponent(""));
+		tooltip.add(new TranslationTextComponent("item.desc.guntyape", Gun.getGunTyape().getLocalizedName())
+				.applyTextStyle(TextFormatting.DARK_GRAY));
 		tooltip.add(new TranslationTextComponent("item.modifiers.mainoroff").applyTextStyle(TextFormatting.GRAY));
 		tooltip.add(new TranslationTextComponent(
 				" " + I18n.format("attribute.name.generic.damegecorrection", Gun.getDamege()))
 						.applyTextStyle(TextFormatting.DARK_RED));
-
+		tooltip.add(new TranslationTextComponent(
+				" " + I18n.format("attribute.name.generic.capacity", Gun.getCapacity()))
+						.applyTextStyle(TextFormatting.DARK_RED));
+		tooltip.add(new TranslationTextComponent(
+				" " + I18n.format("attribute.name.generic.knockback", Gun.getKnockback()))
+						.applyTextStyle(TextFormatting.DARK_RED));
+		tooltip.add(new TranslationTextComponent(
+				" " + I18n.format("attribute.name.generic.propulsion", Gun.getPropulsion()))
+						.applyTextStyle(TextFormatting.DARK_RED));
+		tooltip.add(new TranslationTextComponent(
+				" " + I18n.format("attribute.name.generic.penetrating", Gun.getPenetrating()))
+						.applyTextStyle(TextFormatting.DARK_RED));
+		tooltip.add(new TranslationTextComponent(
+				" " + I18n.format("attribute.name.generic.blaze", Gun.getBlaze()))
+						.applyTextStyle(TextFormatting.DARK_RED));
+		tooltip.add(new TranslationTextComponent(
+				" " + I18n.format("attribute.name.generic.endurance", Gun.getEndurance()))
+						.applyTextStyle(TextFormatting.DARK_RED));
 	}
 }

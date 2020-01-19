@@ -3,8 +3,18 @@
   "item.mineguns.test_item": "テストアイテム",
 
 //Item Tooltip
+  "item.desc.guntyape": "銃の種類 : %s",
   "item.modifiers.mainoroff": "利き手またはオフハンドに持ったとき:",
-
+  "attribute.name.generic.damegecorrection": "銃弾ダメージ %s",
+  "attribute.name.generic.knockback": "銃弾ノックバック %s",
+  "attribute.name.generic.propulsion": "銃弾推進力 %s",
+  "attribute.name.generic.penetrating": "銃弾貫通力 %s体",
+  "attribute.name.generic.blaze": "連射力 秒間%s発",
+  "attribute.name.generic.endurance": "耐久力 %s",
+  "attribute.name.generic.capacity": "装弾数 %s発",
+//GunType
+  "gun.tyape.hand_gun.name": "拳銃",
+  "gun.tyape.rifl_gun.name": "小銃",
 //CreativeTab
   "itemGroup.minegun": "Mine Guns"
   

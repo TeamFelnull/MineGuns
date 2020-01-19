@@ -10,10 +10,10 @@ public class Gun {
 	private float Propulsion;//推進力
 	private float Penetrating;//貫通力、何体まで貫通するか
 	private float Blaze;//連射力、秒間何発か
+	private int Endurance;//耐久力
 
 	public Gun(String name, GunTyape guntyape, boolean semi, int capacity, float damege, float knockback,
-			float propulsion,
-			float penetrating, float blaze) {
+			float propulsion, float penetrating, float blaze, int endurance) {
 		this.Name = name;
 		this.Semi = semi;
 		this.Capacity = capacity;
@@ -23,6 +23,7 @@ public class Gun {
 		this.Penetrating = penetrating;
 		this.Blaze = blaze;
 		this.GunTyape = guntyape;
+		this.Endurance = endurance;
 	}
 
 	public String getName() {
@@ -59,5 +60,9 @@ public class Gun {
 
 	public float getBlaze() {
 		return this.Blaze * GunTyape.getBlazeCorrection();
+	}
+
+	public int getEndurance() {
+		return (int) (this.Endurance * GunTyape.getEndurance());
 	}
 }
