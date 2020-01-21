@@ -15,6 +15,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import orz.teamfelnull.mineguns.gun.Gun;
+import orz.teamfelnull.mineguns.util.GunHelper;
 
 public class GunItem extends Item {
 	private Gun Gun;
@@ -38,28 +39,29 @@ public class GunItem extends Item {
 				.applyTextStyle(TextFormatting.DARK_GRAY));
 		tooltip.add(new TranslationTextComponent("item.modifiers.mainoroff").applyTextStyle(TextFormatting.GRAY));
 		tooltip.add(new TranslationTextComponent(
-				" " + I18n.format("attribute.name.generic.damegecorrection", Gun.getDamege()))
+				" " + I18n.format("attribute.name.generic.damegecorrection", GunHelper.getDamege(stack)))
 						.applyTextStyle(TextFormatting.DARK_RED));
 		tooltip.add(new TranslationTextComponent(
-				" " + I18n.format("attribute.name.generic.accuracy", Gun.getAccuracy()))
+				" " + I18n.format("attribute.name.generic.accuracy", GunHelper.getAccuracy(stack)))
 						.applyTextStyle(TextFormatting.DARK_RED));
 		tooltip.add(new TranslationTextComponent(
-				" " + I18n.format("attribute.name.generic.capacity", Gun.getCapacity()))
+				" " + I18n.format("attribute.name.generic.capacity", GunHelper.getCapacity(stack)))
 						.applyTextStyle(TextFormatting.DARK_RED));
 		tooltip.add(new TranslationTextComponent(
-				" " + I18n.format("attribute.name.generic.knockback", Gun.getKnockback()))
+				" " + I18n.format("attribute.name.generic.knockback", GunHelper.getKnockback(stack)))
 						.applyTextStyle(TextFormatting.DARK_RED));
 		tooltip.add(new TranslationTextComponent(
-				" " + I18n.format("attribute.name.generic.propulsion", Gun.getPropulsion()))
+				" " + I18n.format("attribute.name.generic.propulsion", GunHelper.getPropulsion(stack)))
 						.applyTextStyle(TextFormatting.DARK_RED));
 		tooltip.add(new TranslationTextComponent(
-				" " + I18n.format("attribute.name.generic.penetrating", Gun.getPenetrating()))
+				" " + I18n.format("attribute.name.generic.penetrating", GunHelper.getPenetrating(stack)))
 						.applyTextStyle(TextFormatting.DARK_RED));
 		tooltip.add(new TranslationTextComponent(
-				" " + I18n.format("attribute.name.generic.blaze", Gun.getBlaze()))
+				" " + I18n.format("attribute.name.generic.blaze", GunHelper.getBlaze(stack)))
 						.applyTextStyle(TextFormatting.DARK_RED));
 		tooltip.add(new TranslationTextComponent(
-				" " + I18n.format("attribute.name.generic.endurance", Gun.getEndurance()))
+				" " + I18n.format("attribute.name.generic.endurance", GunHelper.getEndurance(stack)))
 						.applyTextStyle(TextFormatting.DARK_RED));
 	}
+
 }

@@ -25,6 +25,7 @@ public class GunTyape {
 	}
 
 	public String getName() {
+
 		return this.Name;
 	}
 

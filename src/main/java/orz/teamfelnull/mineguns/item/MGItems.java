@@ -21,9 +21,10 @@ public class MGItems {
 
 	public static void registerItem(IForgeRegistry<Item> r) {
 		//test
-		r.register(MGItems.TEST_ITEM);
-		r.register(MGItems.TEST_GUN);
-		r.register(MGItems.IRON_GEAR);
-		r.register(MGItems.IRON_PLATE);
+		r.register(TEST_ITEM);
+		r.register(TEST_GUN);
+		r.register(IRON_GEAR);
+		r.register(IRON_PLATE);
+
 	}
 }

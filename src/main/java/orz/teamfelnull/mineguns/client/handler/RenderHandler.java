@@ -11,11 +11,19 @@ public class RenderHandler {
 
 	@SubscribeEvent
 	public static void onModel(ModelBakeEvent e) {
-		//Map<ResourceLocation, IBakedModel> r = e.getModelRegistry();
 
-		//registerModel(MGItems.TEST_GUN, null, r);
 	}
+	/*
+		@SubscribeEvent
+		public static void onRenderSpecificHand(RenderSpecificHandEvent e) {
+			if (e.getItemStack().getItem() instanceof GunItem) {
 
+				((GunItem) e.getItemStack().getItem()).getGun().renderSpecificHand(e);
+			}
+		}*/
+	//Map<ResourceLocation, IBakedModel> r = e.getModelRegistry();
+
+	//registerModel(MGItems.TEST_GUN, null, r);
 	/*	private static void registerModel(Item item, IBakedModel model, Map<ResourceLocation, IBakedModel> r) {
 
 			ModelResourceLocation loc = new ModelResourceLocation(item.getRegistryName(), "inventory");

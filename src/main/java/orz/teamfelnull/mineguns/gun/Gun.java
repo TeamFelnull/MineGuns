@@ -2,6 +2,11 @@ package orz.teamfelnull.mineguns.gun;
 
 import java.util.Random;
 
+import org.lwjgl.opengl.GL11;
+
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.entity.player.AbstractClientPlayerEntity;
+import net.minecraft.client.renderer.entity.PlayerRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -10,6 +15,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.world.World;
+import net.minecraftforge.client.event.RenderSpecificHandEvent;
+import orz.teamfelnull.mineguns.util.GunHelper;
 
 public class Gun {
 	private String Name;//名前
@@ -20,12 +27,12 @@ public class Gun {
 	private float Knockback;//ノックバック
 	private float Propulsion;//推進力
 	private float Penetrating;//貫通力、何体まで貫通するか
-	private float Blaze;//連射力、秒間何発か
+	private int Blaze;//連射力、何ticに何発か
 	private int Endurance;//耐久力
 	private float Accuracy;//精度
 
 	public Gun(String name, GunTyape guntyape, boolean semi, int capacity, float damege, float knockback,
-			float propulsion, float penetrating, float blaze, int endurance, float accuracy) {
+			float propulsion, float penetrating, int blaze, int endurance, float accuracy) {
 		this.Name = name;
 		this.Semi = semi;
 		this.Capacity = capacity;
@@ -39,6 +46,18 @@ public class Gun {
 		this.Accuracy = accuracy;
 	}
 
+	public void renderSpecificHand(RenderSpecificHandEvent e) {
+		Minecraft mc = Minecraft.getInstance();
+		GL11.glPushMatrix();
+		AbstractClientPlayerEntity abstractclientplayerentity = mc.player;
+		PlayerRenderer playerrenderer = (PlayerRenderer) mc.getRenderManager().getRenderer(abstractclientplayerentity);
+		playerrenderer.func_225627_b_(abstractclientplayerentity, 1);
+
+		GL11.glPopMatrix();
+
+		e.setCanceled(true);
+	}
+
 	public void shot(ItemStack item, Entity attacker, World worldIn) {
 		worldIn.playSound((PlayerEntity) null, attacker.func_226277_ct_(), attacker.func_226278_cu_(),
 				attacker.func_226281_cx_(), SoundEvents.ENTITY_SNOWBALL_THROW, SoundCategory.NEUTRAL, 0.5F,
@@ -48,6 +67,8 @@ public class Gun {
 			snowballentity.func_213884_b(item);
 			snowballentity.shoot(attacker, attacker.rotationPitch, attacker.rotationYaw, 0.0F, 1.5F, 1.0F);
 			worldIn.addEntity(snowballentity);
+
+			GunHelper.setShotCooldwon(item, Blaze);
 		}
 	}
 
@@ -59,39 +80,39 @@ public class Gun {
 		return this.GunTyape;
 	}
 
-	public boolean isSemiAuto() {
+	public boolean isBaseSemiAuto() {
 		return this.Semi;
 	}
 
-	public int getCapacity() {
+	public int getBaseCapacity() {
 		return this.Capacity;
 	}
 
-	public float getDamege() {
+	public float getBaseDamege() {
 		return this.Damege * GunTyape.getDamegeCorrection();
 	}
 
-	public float getKnockback() {
+	public float getBaseKnockback() {
 		return this.Knockback * GunTyape.getKnockbackCorrection();
 	}
 
-	public float getPropulsion() {
+	public float getBasePropulsion() {
 		return this.Propulsion * GunTyape.getPropulsionCorrection();
 	}
 
-	public float getPenetrating() {
+	public float getBasePenetrating() {
 		return this.Penetrating * GunTyape.getPenetratingCorrection();
 	}
 
-	public float getBlaze() {
-		return this.Blaze * GunTyape.getBlazeCorrection();
+	public int getBaseBlaze() {
+		return (int) (this.Blaze * GunTyape.getBlazeCorrection());
 	}
 
-	public int getEndurance() {
+	public int getBaseEndurance() {
 		return (int) (this.Endurance * GunTyape.getEnduranceCorrection());
 	}
 
-	public float getAccuracy() {
+	public float getBaseAccuracy() {
 		return this.Accuracy * GunTyape.getAccuracyCorrection();
 	}
 }
