@@ -16,23 +16,27 @@ import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.world.World;
 import net.minecraftforge.client.event.RenderSpecificHandEvent;
+import orz.teamfelnull.mineguns.client.render.gun.animaiton.GunAnimation;
+import orz.teamfelnull.mineguns.gun.tyape.GunTyape;
+import orz.teamfelnull.mineguns.item.MGItems;
 import orz.teamfelnull.mineguns.util.GunHelper;
 
 public class Gun {
-	private String Name;//名前
-	private GunTyape GunTyape;//銃タイプ
-	private boolean Semi;//セミオートかどうか
-	private int Capacity;//装填数
-	private float Damege;//攻撃力
-	private float Knockback;//ノックバック
-	private float Propulsion;//推進力
-	private float Penetrating;//貫通力、何体まで貫通するか
-	private int Blaze;//連射力、何ticに何発か
-	private int Endurance;//耐久力
-	private float Accuracy;//精度
+	private String Name;// 名前
+	private GunTyape GunTyape;// 銃タイプ
+	private GunAnimation GunAnimation;// 銃描画
+	private boolean Semi;// セミオートかどうか
+	private int Capacity;// 装填数
+	private float Damege;// 攻撃力
+	private float Knockback;// ノックバック
+	private float Propulsion;// 推進力
+	private float Penetrating;// 貫通力、何体まで貫通するか
+	private int Blaze;// 連射力、何ticに何発か
+	private int Endurance;// 耐久力
+	private float Accuracy;// 精度
 
-	public Gun(String name, GunTyape guntyape, boolean semi, int capacity, float damege, float knockback,
-			float propulsion, float penetrating, int blaze, int endurance, float accuracy) {
+	public Gun(String name, GunTyape guntyape, GunAnimation gunanimation, boolean semi, int capacity, float damege,
+			float knockback, float propulsion, float penetrating, int blaze, int endurance, float accuracy) {
 		this.Name = name;
 		this.Semi = semi;
 		this.Capacity = capacity;
@@ -44,6 +48,7 @@ public class Gun {
 		this.GunTyape = guntyape;
 		this.Endurance = endurance;
 		this.Accuracy = accuracy;
+		this.GunAnimation = gunanimation;
 	}
 
 	public void renderSpecificHand(RenderSpecificHandEvent e) {
@@ -64,7 +69,7 @@ public class Gun {
 				0.4F / (new Random().nextFloat() * 0.4F + 0.8F));
 		if (!worldIn.isRemote) {
 			SnowballEntity snowballentity = new SnowballEntity(worldIn, (LivingEntity) attacker);
-			snowballentity.func_213884_b(item);
+			snowballentity.func_213884_b(new ItemStack(MGItems.IRON_GEAR));
 			snowballentity.shoot(attacker, attacker.rotationPitch, attacker.rotationYaw, 0.0F, 1.5F, 1.0F);
 			worldIn.addEntity(snowballentity);
 
@@ -78,6 +83,10 @@ public class Gun {
 
 	public GunTyape getGunTyape() {
 		return this.GunTyape;
+	}
+
+	public GunAnimation getGunAnimation() {
+		return this.GunAnimation;
 	}
 
 	public boolean isBaseSemiAuto() {

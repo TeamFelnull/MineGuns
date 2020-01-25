@@ -1,16 +1,16 @@
-package orz.teamfelnull.mineguns.gun;
+package orz.teamfelnull.mineguns.gun.tyape;
 
 import net.minecraft.client.resources.I18n;
 
 public class GunTyape {
-	private String Name;//名前
-	private float DamegeCorrection;//攻撃力
-	private float KnockbackCorrection;//ノックバック
-	private float PropulsionCorrection;//推進力
-	private float PenetratingCorrection;//貫通力
-	private float BlazeCorrection;//連射力
-	private float EnduranceCorrection;//耐久力
-	private float AccuracyCorrection;//精度
+	private String Name;//蜷榊燕
+	private float DamegeCorrection;//謾ｻ謦�蜉�
+	private float KnockbackCorrection;//繝弱ャ繧ｯ繝舌ャ繧ｯ
+	private float PropulsionCorrection;//謗ｨ騾ｲ蜉�
+	private float PenetratingCorrection;//雋ｫ騾壼鴨
+	private float BlazeCorrection;//騾｣蟆�蜉�
+	private float EnduranceCorrection;//閠蝉ｹ�蜉�
+	private float AccuracyCorrection;//邊ｾ蠎ｦ
 
 	public GunTyape(String name, float damegecorrection, float knockbackcorrection, float propulsioncorrection,
 			float penetratingcorrection, float blazecorrection, float endurancection, float accuraccorrectiony) {

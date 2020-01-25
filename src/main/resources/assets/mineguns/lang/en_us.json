@@ -1,6 +1,7 @@
 {
 //Item
   "item.mineguns.test_item": "Test Item",
+  "item.mineguns.tmp": "TMP",
 
 //Item Tooltip
   "item.desc.guntyape": "Gun Tyape : %s",
@@ -14,8 +15,9 @@
   "attribute.name.generic.capacity": "%s Capacity",
   "attribute.name.generic.accuracy": "%s Bullet Accuracy",
 //GunType
-  "gun.tyape.hand_gun.name": "Hand gun",
-  "gun.tyape.rifl_gun.name": "Rifle",
+  "gun.tyape.handgun.name": "Hand gun",
+  "gun.tyape.rifl.name": "Rifle",
+  "gun.tyape.submachinegun.name": "Submachine Gun",
   
 //CreativeTab
   "itemGroup.minegun": "Mine Guns"
