@@ -15,7 +15,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.world.World;
-import net.minecraftforge.client.event.RenderSpecificHandEvent;
+import net.minecraftforge.client.event.RenderHandEvent;
 import orz.teamfelnull.mineguns.client.render.gun.animaiton.GunAnimation;
 import orz.teamfelnull.mineguns.gun.tyape.GunTyape;
 import orz.teamfelnull.mineguns.item.MGItems;
@@ -34,9 +34,10 @@ public class Gun {
 	private int Blaze;// 連射力、何ticに何発か
 	private int Endurance;// 耐久力
 	private float Accuracy;// 精度
+	private int Hold;
 
 	public Gun(String name, GunTyape guntyape, GunAnimation gunanimation, boolean semi, int capacity, float damege,
-			float knockback, float propulsion, float penetrating, int blaze, int endurance, float accuracy) {
+			float knockback, float propulsion, float penetrating, int blaze, int endurance, float accuracy, int hold) {
 		this.Name = name;
 		this.Semi = semi;
 		this.Capacity = capacity;
@@ -49,9 +50,10 @@ public class Gun {
 		this.Endurance = endurance;
 		this.Accuracy = accuracy;
 		this.GunAnimation = gunanimation;
+		this.Hold = hold;
 	}
 
-	public void renderSpecificHand(RenderSpecificHandEvent e) {
+	public void renderSpecificHand(RenderHandEvent e) {
 		Minecraft mc = Minecraft.getInstance();
 		GL11.glPushMatrix();
 		AbstractClientPlayerEntity abstractclientplayerentity = mc.player;
@@ -123,5 +125,9 @@ public class Gun {
 
 	public float getBaseAccuracy() {
 		return this.Accuracy * GunTyape.getAccuracyCorrection();
+	}
+
+	public int getBaseHold() {
+		return (int) (this.Hold * GunTyape.getHoldCorrection());
 	}
 }

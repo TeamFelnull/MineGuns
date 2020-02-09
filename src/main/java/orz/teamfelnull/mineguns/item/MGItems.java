@@ -16,6 +16,9 @@ public class MGItems {
 	public static Item TMP_GUN = new GunItem(new Item.Properties().group(MGItemGroup.MINEGUN_TAB), MGGuns.TMP)
 			.setRegistryName(MineGuns.MODID, "tmp");
 
+	public static Item HK433_GUN = new GunItem(new Item.Properties().group(MGItemGroup.MINEGUN_TAB), MGGuns.HK433)
+			.setRegistryName(MineGuns.MODID, "hk433");
+
 	public static Item IRON_GEAR = new Item(new Item.Properties().group(MGItemGroup.MINEGUN_TAB))
 			.setRegistryName(MineGuns.MODID, "iron_gear");
 
@@ -27,6 +30,7 @@ public class MGItems {
 		r.register(TEST_ITEM);
 		r.register(TEST_GUN);
 		r.register(TMP_GUN);
+		r.register(HK433_GUN);
 		r.register(IRON_GEAR);
 		r.register(IRON_PLATE);
 

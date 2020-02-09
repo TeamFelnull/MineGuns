@@ -2,7 +2,8 @@
 //Item
   "item.mineguns.test_item": "Test Item",
   "item.mineguns.tmp": "TMP",
-
+  "item.mineguns.hk433": "HK433",
+  
 //Item Tooltip
   "item.desc.guntyape": "Gun Tyape : %s",
   "item.modifiers.mainoroff": "When in main hand or off hand:",

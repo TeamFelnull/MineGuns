@@ -95,5 +95,12 @@ public class KeyHandler {
 			}
 		}
 
+		if (mc.gameSettings.keyBindSwapHands.isPressed()) {
+			System.out.println(((float) debuck / 100) + "f, " + ((float) debuck2 / 100) + "f, "
+					+ ((float) debuck3 / 100) + "f, " + ((float) debucka / 100) + "f, " + ((float) debucka2 / 100)
+					+ "f, " + ((float) debucka3 / 100) + "f");
+		}
+
 	}
+
 }

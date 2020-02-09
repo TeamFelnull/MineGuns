@@ -5,11 +5,39 @@ import net.minecraft.nbt.CompoundNBT;
 import orz.teamfelnull.mineguns.item.GunItem;
 
 public class GunHelper {
+	public static void setHolding(ItemStack item, Boolean value) {
+		CompoundNBT nbt = item.getOrCreateTag();
+		nbt.putBoolean("Holding", value);
+	}
+
+	public static void setHoldProgress(ItemStack item, int value) {
+		CompoundNBT nbt = item.getOrCreateTag();
+		nbt.putInt("HoldProgress", value);
+
+	}
 
 	public static void setShotCooldwon(ItemStack item, int value) {
 		CompoundNBT nbt = item.getOrCreateTag();
 		nbt.putInt("ShotCooldwon", value);
 
+	}
+
+	public static boolean isHolding(ItemStack item) {
+		CompoundNBT nbt = item.getTag();
+
+		if (nbt != null)
+			return nbt.getBoolean("HoldProgress");
+
+		return false;
+	}
+
+	public static int getHoldProgress(ItemStack item) {
+		CompoundNBT nbt = item.getTag();
+
+		if (nbt != null)
+			return nbt.getInt("HoldProgress");
+
+		return 0;
 	}
 
 	public static int getShotCooldwon(ItemStack item) {
@@ -72,7 +100,7 @@ public class GunHelper {
 		return gun.getGun().getBasePenetrating();
 	}
 
-	public static float getBlaze(ItemStack item) {
+	public static int getBlaze(ItemStack item) {
 		if (!(item.getItem() instanceof GunItem))
 			return 0;
 		GunItem gun = (GunItem) item.getItem();
@@ -91,5 +119,12 @@ public class GunHelper {
 			return 0;
 		GunItem gun = (GunItem) item.getItem();
 		return gun.getGun().getBaseAccuracy();
+	}
+
+	public static int getHold(ItemStack item) {
+		if (!(item.getItem() instanceof GunItem))
+			return 0;
+		GunItem gun = (GunItem) item.getItem();
+		return gun.getGun().getBaseHold();
 	}
 }

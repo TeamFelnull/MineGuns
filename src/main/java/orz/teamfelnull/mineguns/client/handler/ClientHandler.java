@@ -23,13 +23,15 @@ public class ClientHandler {
 			Item offitemstack = mc.player.getHeldItemOffhand().getItem();
 			if ((mainitemstack instanceof GunItem) || (offitemstack instanceof GunItem)) {
 				if (isGunShot()) {
-					PacketHandler.INSTANCE.sendToServer(new GunStateMessage(1));//打つ
+					PacketHandler.INSTANCE.sendToServer(new GunStateMessage(1));// 打つ
 				}
 				if (isHold()) {
-					PacketHandler.INSTANCE.sendToServer(new GunStateMessage(2));//構え
+					PacketHandler.INSTANCE.sendToServer(new GunStateMessage(2));// 構える
+				} else {
+					PacketHandler.INSTANCE.sendToServer(new GunStateMessage(4));// 構え解除
 				}
 				if (isGunShot() && !semishot) {
-					PacketHandler.INSTANCE.sendToServer(new GunStateMessage(3));//セミオートで打つ
+					PacketHandler.INSTANCE.sendToServer(new GunStateMessage(3));// セミオートで打つ
 					semishot = true;
 				}
 				if (!isGunShot()) {

@@ -2,7 +2,7 @@ package orz.teamfelnull.mineguns.client.handler;
 
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.client.event.ModelBakeEvent;
-import net.minecraftforge.client.event.RenderSpecificHandEvent;
+import net.minecraftforge.client.event.RenderHandEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import orz.teamfelnull.mineguns.client.render.gun.animaiton.GunAnimation;
@@ -18,7 +18,7 @@ public class RenderHandler {
 	}
 
 	@SubscribeEvent
-	public static void onRenderSpecificHand(RenderSpecificHandEvent e) {
+	public static void onRenderSpecificHand(RenderHandEvent e) {
 
 		if (e.getItemStack().getItem() instanceof GunItem) {
 			GunItem gun = (GunItem) e.getItemStack().getItem();
