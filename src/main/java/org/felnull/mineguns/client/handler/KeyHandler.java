@@ -1,4 +1,4 @@
-package orz.teamfelnull.mineguns.client.handler;
+package org.felnull.mineguns.client.handler;
 
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.client.event.InputEvent.KeyInputEvent;

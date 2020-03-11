@@ -1,4 +1,4 @@
-package orz.teamfelnull.mineguns.client.render;
+package org.felnull.mineguns.client.render;
 
 import net.minecraft.client.renderer.tileentity.ItemStackTileEntityRenderer;
 

@@ -1,4 +1,4 @@
-package orz.teamfelnull.mineguns.gun.tyape;
+package org.felnull.mineguns.gun.tyape;
 
 import net.minecraft.client.resources.I18n;
 

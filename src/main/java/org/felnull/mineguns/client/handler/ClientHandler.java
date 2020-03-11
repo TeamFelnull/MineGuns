@@ -1,13 +1,14 @@
-package orz.teamfelnull.mineguns.client.handler;
+package org.felnull.mineguns.client.handler;
+
+import org.felnull.mineguns.item.GunItem;
+import org.felnull.mineguns.packet.PacketHandler;
+import org.felnull.mineguns.packet.message.GunStateMessage;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.item.Item;
 import net.minecraftforge.event.TickEvent.ClientTickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import orz.teamfelnull.mineguns.item.GunItem;
-import orz.teamfelnull.mineguns.packet.PacketHandler;
-import orz.teamfelnull.mineguns.packet.message.GunStateMessage;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ClientHandler {

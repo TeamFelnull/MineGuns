@@ -1,4 +1,4 @@
-package orz.teamfelnull.mineguns.packet.message;
+package org.felnull.mineguns.packet.message;
 
 import net.minecraft.network.PacketBuffer;
 

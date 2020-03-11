@@ -1,8 +1,9 @@
-package orz.teamfelnull.mineguns.util;
+package org.felnull.mineguns.util;
+
+import org.felnull.mineguns.item.GunItem;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
-import orz.teamfelnull.mineguns.item.GunItem;
 
 public class GunHelper {
 	public static void setHolding(ItemStack item, Boolean value) {

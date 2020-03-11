@@ -1,4 +1,4 @@
-package orz.teamfelnull.mineguns.entity;
+package org.felnull.mineguns.entity;
 
 import net.minecraft.entity.EntityType;
 import net.minecraftforge.registries.IForgeRegistry;

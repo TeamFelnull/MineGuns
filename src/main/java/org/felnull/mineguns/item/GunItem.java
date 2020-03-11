@@ -1,8 +1,11 @@
-package orz.teamfelnull.mineguns.item;
+package org.felnull.mineguns.item;
 
 import java.util.List;
 
 import javax.annotation.Nullable;
+
+import org.felnull.mineguns.gun.Gun;
+import org.felnull.mineguns.util.GunHelper;
 
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
@@ -14,8 +17,6 @@ import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import orz.teamfelnull.mineguns.gun.Gun;
-import orz.teamfelnull.mineguns.util.GunHelper;
 
 public class GunItem extends Item {
 	private Gun Gun;

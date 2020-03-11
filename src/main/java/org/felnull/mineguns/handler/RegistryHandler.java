@@ -1,4 +1,8 @@
-package orz.teamfelnull.mineguns.handler;
+package org.felnull.mineguns.handler;
+
+import org.felnull.mineguns.block.MGBlocks;
+import org.felnull.mineguns.entity.MGEntitys;
+import org.felnull.mineguns.item.MGItems;
 
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityType;
@@ -6,9 +10,6 @@ import net.minecraft.item.Item;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import orz.teamfelnull.mineguns.block.MGBlocks;
-import orz.teamfelnull.mineguns.entity.MGEntitys;
-import orz.teamfelnull.mineguns.item.MGItems;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class RegistryHandler {

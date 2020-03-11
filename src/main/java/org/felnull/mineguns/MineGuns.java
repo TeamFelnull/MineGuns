@@ -1,7 +1,9 @@
-package orz.teamfelnull.mineguns;
+package org.felnull.mineguns;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.felnull.mineguns.proxy.ClientProxy;
+import org.felnull.mineguns.proxy.CommonProxy;
 
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.DistExecutor;
@@ -12,8 +14,6 @@ import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
 import net.minecraftforge.fml.event.lifecycle.InterModProcessEvent;
 import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import orz.teamfelnull.mineguns.proxy.ClientProxy;
-import orz.teamfelnull.mineguns.proxy.CommonProxy;
 
 @Mod("mineguns")
 public class MineGuns {

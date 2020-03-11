@@ -1,7 +1,7 @@
-package orz.teamfelnull.mineguns.gun;
+package org.felnull.mineguns.gun;
 
-import orz.teamfelnull.mineguns.client.render.gun.animaiton.MGGunAanimations;
-import orz.teamfelnull.mineguns.gun.tyape.MGGunTyapes;
+import org.felnull.mineguns.client.render.gun.animaiton.MGGunAanimations;
+import org.felnull.mineguns.gun.tyape.MGGunTyapes;
 
 public class MGGuns {
 	// 名前,銃タイプ,セミオートかどうか,装填数,攻撃力,ノックバック,推進力,貫通力,連射力,耐久力,精度

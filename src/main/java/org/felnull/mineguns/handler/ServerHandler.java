@@ -1,4 +1,7 @@
-package orz.teamfelnull.mineguns.handler;
+package org.felnull.mineguns.handler;
+
+import org.felnull.mineguns.item.GunItem;
+import org.felnull.mineguns.util.GunHelper;
 
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
@@ -6,8 +9,6 @@ import net.minecraftforge.event.TickEvent.PlayerTickEvent;
 import net.minecraftforge.event.TickEvent.ServerTickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import orz.teamfelnull.mineguns.item.GunItem;
-import orz.teamfelnull.mineguns.util.GunHelper;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ServerHandler {

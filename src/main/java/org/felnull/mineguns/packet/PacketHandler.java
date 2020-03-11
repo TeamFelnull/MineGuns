@@ -1,11 +1,12 @@
-package orz.teamfelnull.mineguns.packet;
+package org.felnull.mineguns.packet;
+
+import org.felnull.mineguns.MineGuns;
+import org.felnull.mineguns.handler.GunStateMessageHandler;
+import org.felnull.mineguns.packet.message.GunStateMessage;
 
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.network.NetworkRegistry;
 import net.minecraftforge.fml.network.simple.SimpleChannel;
-import orz.teamfelnull.mineguns.MineGuns;
-import orz.teamfelnull.mineguns.handler.GunStateMessageHandler;
-import orz.teamfelnull.mineguns.packet.message.GunStateMessage;
 
 public class PacketHandler {
 	public static final String PROTOCOL_VERSION = "1";

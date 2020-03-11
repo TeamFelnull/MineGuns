@@ -1,12 +1,13 @@
-package orz.teamfelnull.mineguns.client.handler;
+package org.felnull.mineguns.client.handler;
+
+import org.felnull.mineguns.client.render.gun.animaiton.GunAnimation;
+import org.felnull.mineguns.item.GunItem;
 
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.client.event.ModelBakeEvent;
 import net.minecraftforge.client.event.RenderHandEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import orz.teamfelnull.mineguns.client.render.gun.animaiton.GunAnimation;
-import orz.teamfelnull.mineguns.item.GunItem;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class RenderHandler {

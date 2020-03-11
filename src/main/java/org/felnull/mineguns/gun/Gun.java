@@ -1,7 +1,11 @@
-package orz.teamfelnull.mineguns.gun;
+package org.felnull.mineguns.gun;
 
 import java.util.Random;
 
+import org.felnull.mineguns.client.render.gun.animaiton.GunAnimation;
+import org.felnull.mineguns.gun.tyape.GunTyape;
+import org.felnull.mineguns.item.MGItems;
+import org.felnull.mineguns.util.GunHelper;
 import org.lwjgl.opengl.GL11;
 
 import net.minecraft.client.Minecraft;
@@ -16,10 +20,6 @@ import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.world.World;
 import net.minecraftforge.client.event.RenderHandEvent;
-import orz.teamfelnull.mineguns.client.render.gun.animaiton.GunAnimation;
-import orz.teamfelnull.mineguns.gun.tyape.GunTyape;
-import orz.teamfelnull.mineguns.item.MGItems;
-import orz.teamfelnull.mineguns.util.GunHelper;
 
 public class Gun {
 	private String Name;// 名前

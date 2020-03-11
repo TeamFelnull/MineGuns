@@ -1,4 +1,4 @@
-package orz.teamfelnull.mineguns.client.helper;
+package org.felnull.mineguns.client.helper;
 
 import org.lwjgl.opengl.GL11;
 

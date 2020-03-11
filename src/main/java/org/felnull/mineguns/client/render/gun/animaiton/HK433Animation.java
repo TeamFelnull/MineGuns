@@ -1,9 +1,10 @@
-package orz.teamfelnull.mineguns.client.render.gun.animaiton;
+package org.felnull.mineguns.client.render.gun.animaiton;
+
+import org.felnull.mineguns.client.helper.RenderHelper;
 
 import net.minecraft.client.renderer.model.ItemCameraTransforms.TransformType;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Hand;
-import orz.teamfelnull.mineguns.client.helper.RenderHelper;
 
 @SuppressWarnings("deprecation")
 public class HK433Animation extends GunAnimation {

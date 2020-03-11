@@ -1,4 +1,7 @@
-package orz.teamfelnull.mineguns.block;
+package org.felnull.mineguns.block;
+
+import org.felnull.mineguns.MGItemGroup;
+import org.felnull.mineguns.MineGuns;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -6,8 +9,6 @@ import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraftforge.registries.IForgeRegistry;
-import orz.teamfelnull.mineguns.MGItemGroup;
-import orz.teamfelnull.mineguns.MineGuns;
 
 public class MGBlocks {
 	public static Block TEST_BLOCK = new Block(Block.Properties.create(Material.ROCK))

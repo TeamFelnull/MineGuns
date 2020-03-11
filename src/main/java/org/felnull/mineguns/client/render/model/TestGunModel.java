@@ -1,4 +1,4 @@
-package orz.teamfelnull.mineguns.client.render.model;
+package org.felnull.mineguns.client.render.model;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;

@@ -1,13 +1,14 @@
-package orz.teamfelnull.mineguns.handler;
+package org.felnull.mineguns.handler;
 
 import java.util.function.Supplier;
+
+import org.felnull.mineguns.item.GunItem;
+import org.felnull.mineguns.packet.message.GunStateMessage;
+import org.felnull.mineguns.util.GunHelper;
 
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.network.NetworkEvent;
-import orz.teamfelnull.mineguns.item.GunItem;
-import orz.teamfelnull.mineguns.packet.message.GunStateMessage;
-import orz.teamfelnull.mineguns.util.GunHelper;
 
 public class GunStateMessageHandler {
 	public static void reversiveMessage(GunStateMessage message, Supplier<NetworkEvent.Context> ctx) {

@@ -1,8 +1,9 @@
-package orz.teamfelnull.mineguns.proxy;
+package org.felnull.mineguns.proxy;
+
+import org.felnull.mineguns.handler.ServerHandler;
+import org.felnull.mineguns.packet.PacketHandler;
 
 import net.minecraftforge.common.MinecraftForge;
-import orz.teamfelnull.mineguns.handler.ServerHandler;
-import orz.teamfelnull.mineguns.packet.PacketHandler;
 
 public class CommonProxy {
 

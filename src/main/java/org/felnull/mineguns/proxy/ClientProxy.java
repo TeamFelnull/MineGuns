@@ -1,9 +1,10 @@
-package orz.teamfelnull.mineguns.proxy;
+package org.felnull.mineguns.proxy;
+
+import org.felnull.mineguns.client.handler.ClientHandler;
+import org.felnull.mineguns.client.handler.KeyHandler;
+import org.felnull.mineguns.client.handler.RenderHandler;
 
 import net.minecraftforge.common.MinecraftForge;
-import orz.teamfelnull.mineguns.client.handler.ClientHandler;
-import orz.teamfelnull.mineguns.client.handler.KeyHandler;
-import orz.teamfelnull.mineguns.client.handler.RenderHandler;
 
 public class ClientProxy extends CommonProxy {
 

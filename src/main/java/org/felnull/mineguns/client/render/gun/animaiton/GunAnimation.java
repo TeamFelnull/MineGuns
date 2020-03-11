@@ -1,4 +1,4 @@
-package orz.teamfelnull.mineguns.client.render.gun.animaiton;
+package org.felnull.mineguns.client.render.gun.animaiton;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.PlayerEntity;

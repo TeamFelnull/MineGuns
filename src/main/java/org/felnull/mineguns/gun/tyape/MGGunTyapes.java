@@ -1,4 +1,4 @@
-package orz.teamfelnull.mineguns.gun.tyape;
+package org.felnull.mineguns.gun.tyape;
 
 public class MGGunTyapes {
 	// 名前,攻撃力補正,ノックバック補正,推進力補正,貫通力補正,連射力補正,耐久力補正
