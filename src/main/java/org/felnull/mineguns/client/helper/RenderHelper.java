@@ -64,4 +64,24 @@ public class RenderHelper {
 		fpr.func_228397_a_(mc.player, item, handtyape, false, ms, Impl, 150);
 		GL11.glPopMatrix();
 	}
+
+	public static void glAllRotatef(float x, float y, float z) {
+		GL11.glRotatef(x, 1, 0, 0);
+		GL11.glRotatef(y, 0, 1, 0);
+		GL11.glRotatef(z, 0, 0, 1);
+	}
+
+	public static void glTranslatefDegree(float degree, float x, float y, float z) {
+		GL11.glTranslatef(x * degree, y * degree, z * degree);
+	}
+
+	public static void glRotatefDegree(float degree, float x, float y, float z) {
+		glAllRotatef(x * degree, y * degree, z * degree);
+	}
+
+	public static void gTranslateflRotatefDegree(float degree, float tx, float ty, float tz, float rx, float ry,
+			float rz) {
+		glTranslatefDegree(degree, tx, ty, tz);
+		glRotatefDegree(degree, rx, ry, rz);
+	}
 }

@@ -20,6 +20,8 @@ public class GunStateMessageHandler {
 		shotMainHandGun(mainitemstack, pl, state);
 		shotOffHandGun(offitemstack, pl, state);
 		holdMainHandGun(mainitemstack, pl, state);
+		holdOffHandGun(offitemstack, pl, state);
+
 	}
 
 	public static void holdMainHandGun(Item mainitemstack, PlayerEntity pl, int state) {
@@ -30,6 +32,18 @@ public class GunStateMessageHandler {
 
 			if (state == 4)
 				GunHelper.setHolding(pl.getHeldItemMainhand(), false);
+
+		}
+	}
+
+	public static void holdOffHandGun(Item offitemstack, PlayerEntity pl, int state) {
+		if ((offitemstack instanceof GunItem)) {
+
+			if (state == 2)
+				GunHelper.setHolding(pl.getHeldItemOffhand(), true);
+
+			if (state == 4)
+				GunHelper.setHolding(pl.getHeldItemOffhand(), false);
 
 		}
 	}

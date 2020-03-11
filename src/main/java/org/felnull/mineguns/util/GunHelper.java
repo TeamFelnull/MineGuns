@@ -27,7 +27,7 @@ public class GunHelper {
 		CompoundNBT nbt = item.getTag();
 
 		if (nbt != null)
-			return nbt.getBoolean("HoldProgress");
+			return nbt.getBoolean("Holding");
 
 		return false;
 	}

@@ -7,9 +7,18 @@ import net.minecraftforge.common.MinecraftForge;
 
 public class CommonProxy {
 
-	public void setup() {
+	public void preInit() {
 		PacketHandler.init();
 		MinecraftForge.EVENT_BUS.register(ServerHandler.class);
 
 	}
+
+	public void init() {
+
+	}
+
+	public void posInit() {
+
+	}
+
 }

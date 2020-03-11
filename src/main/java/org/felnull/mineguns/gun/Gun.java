@@ -34,7 +34,7 @@ public class Gun {
 	private int Blaze;// 連射力、何ticに何発か
 	private int Endurance;// 耐久力
 	private float Accuracy;// 精度
-	private int Hold;
+	private int Hold; //構え速度
 
 	public Gun(String name, GunTyape guntyape, GunAnimation gunanimation, boolean semi, int capacity, float damege,
 			float knockback, float propulsion, float penetrating, int blaze, int endurance, float accuracy, int hold) {
