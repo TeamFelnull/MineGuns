@@ -35,7 +35,7 @@ public class MK23Animation extends GunAnimation {
 	@Override
 	public void renderRightOnryHand(ItemStack stack, float holdpar) {
 		RenderHelper.renderGunHand(Hand.MAIN_HAND, 0.66300035f, 0.26999885f, -0.7819979f, -0.59899974f, 0.04199999f,
-				0.09999996f, holdpar, -0.7299993f, 0.04699999f, 0.16800275f, -0.029000001f, -0.028f, -0.163f);
+				0.09999996f, holdpar, -0.66999936f, 0.04699999f, 0.16800275f, -0.029000001f, -0.028f, -0.13299996f);
 		RenderHelper.renderGunItem(stack, TransformType.FIRST_PERSON_RIGHT_HAND, 2, 0.43999988f, -0.27000004f,
 				-0.76999974f, 0.030000014f, 0.03f, 0.0f, holdpar, -0.2799998f, 0.127f, 0.06800275f, -0.029000044f,
 				-0.07800003f, -0.0029999986f);
@@ -44,8 +44,9 @@ public class MK23Animation extends GunAnimation {
 	@Override
 	public void renderLeftOnryHand(ItemStack stack, float holdpar) {
 		RenderHelper.renderGunHand(Hand.OFF_HAND, 0.66300035f, 0.26999885f, -0.7819979f, -0.59899974f, 0.04199999f,
-				0.09999996f, holdpar, -0.7299993f, 0.04699999f, 0.16800275f, -0.029000001f, -0.028f, -0.163f);
+				0.09999996f, holdpar, -0.66999936f, 0.04699999f, 0.16800275f, -0.029000001f, -0.028f, -0.13299996f);
 		RenderHelper.renderGunItem(stack, TransformType.FIRST_PERSON_LEFT_HAND, 2, 0.43999988f, -0.27000004f,
-				-0.76999974f, 0.030000014f, 0.03f, 0.0f, holdpar, -0.2799998f, 0.127f, 0.06800275f, -0.029000044f, -0.07800003f, -0.0029999986f);
+				-0.76999974f, 0.030000014f, 0.03f, 0.0f, holdpar, -0.2799998f, 0.127f, 0.06800275f, -0.029000044f,
+				-0.07800003f, -0.0029999986f);
 	}
 }
