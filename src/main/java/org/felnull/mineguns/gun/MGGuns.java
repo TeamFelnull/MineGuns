@@ -10,7 +10,7 @@ public class MGGuns {
 	public static Gun TMP = new Gun("tmp", MGGunTyapes.SUBMACHINEGUN, MGGunAanimations.TMP, false, 15, 5.5f, 1, 10, 1,
 			3, 1000, 1, 20);
 	public static Gun HK433 = new Gun("hk433", MGGunTyapes.RIFL, MGGunAanimations.HK433, false, 15, 5.5f, 1, 10, 1, 3,
-			1000, 1, 20);
-	public static Gun MK23 = new Gun("mk23", MGGunTyapes.HANDGUN, MGGunAanimations.HK433, true, 15, 5.5f, 1, 10, 1, 3,
+			1000, 1, 10);
+	public static Gun MK23 = new Gun("mk23", MGGunTyapes.HANDGUN, MGGunAanimations.MK23, true, 15, 5.5f, 1, 10, 1, 3,
 			1000, 1, 20);
 }

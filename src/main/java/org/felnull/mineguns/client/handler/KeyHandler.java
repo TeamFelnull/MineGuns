@@ -10,21 +10,25 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 public class KeyHandler {
 	public static Minecraft mc = Minecraft.getInstance();
 
-	private static int deb_ido_x;
-	private static int deb_ido_y;
-	private static int deb_ido_z;
+	public static int bangou = 0;
 
-	private static int deb_kakudo_x;
-	private static int deb_kakudo_y;
-	private static int deb_kakudo_z;
+	public static float bairitu = 1;
 
-	public static float deb_ido_x_j;
-	public static float deb_ido_y_j;
-	public static float deb_ido_z_j;
+	public static float deb_ido_x;
+	public static float deb_ido_y;
+	public static float deb_ido_z;
 
-	public static float deb_kakudo_x_j;
-	public static float deb_kakudo_y_j;
-	public static float deb_kakudo_z_j;
+	public static float deb_kakudo_x;
+	public static float deb_kakudo_y;
+	public static float deb_kakudo_z;
+
+	public static float deb_ido_x2;
+	public static float deb_ido_y2;
+	public static float deb_ido_z2;
+
+	public static float deb_kakudo_x2;
+	public static float deb_kakudo_y2;
+	public static float deb_kakudo_z2;
 
 	public static KeyBinding DEBUG_LEFT = new KeyBinding("key.dubg_left", GLFW.GLFW_KEY_RIGHT,
 			"key.categories.mineguns.debug");
@@ -58,82 +62,153 @@ public class KeyHandler {
 			"key.categories.mineguns.debug");
 	public static KeyBinding DEBUG_RESET = new KeyBinding("key.dubg_reset", GLFW.GLFW_KEY_N,
 			"key.categories.mineguns.debug");
+	public static KeyBinding DEBUG_BAIRITU_UP = new KeyBinding("key.dubg_bairitu_up", GLFW.GLFW_KEY_H,
+			"key.categories.mineguns.debug");
+	public static KeyBinding DEBUG_BAIRITU_DOWN = new KeyBinding("key.dubg_bairitu_down", GLFW.GLFW_KEY_B,
+			"key.categories.mineguns.debug");
 
-	public static void setJ(int idobaisuu, int kakudobaisuu) {
-		deb_ido_x_j = (float) deb_ido_x / idobaisuu;
-		deb_ido_y_j = (float) deb_ido_y / idobaisuu;
-		deb_ido_z_j = (float) deb_ido_z / idobaisuu;
+	public static KeyBinding DEBUG_BANGOU_UP = new KeyBinding("key.dubg_bangou_up", GLFW.GLFW_KEY_G,
+			"key.categories.mineguns.debug");
+	public static KeyBinding DEBUG_BANGOU_DOWN = new KeyBinding("key.dubg_bangou_down", GLFW.GLFW_KEY_V,
+			"key.categories.mineguns.debug");
 
-		deb_kakudo_x_j = (float) deb_kakudo_x / kakudobaisuu;
-		deb_kakudo_y_j = (float) deb_kakudo_y / kakudobaisuu;
-		deb_kakudo_z_j = (float) deb_kakudo_z / kakudobaisuu;
+	public static void init() {
+		set(-0.33999974f, 0.09700001f, 0.06800275f, -0.029000001f,-0.128f, -0.0029999986f);
+		//	set(0, 0, 0, 0, 0, 0);
+	}
+
+	public static void set(float tx, float ty, float tz, float rx, float ry, float rz) {
+		deb_ido_x = tx;
+		deb_ido_y = ty;
+		deb_ido_z = tz;
+
+		deb_kakudo_x = rx;
+		deb_kakudo_y = ry;
+		deb_kakudo_z = rz;
 	}
 
 	@SubscribeEvent
 	public static void onKeyInput(KeyInputEvent e) {
-		//	System.out.println("test=" + debuck + "test2=" + debuck2 + "test3=" + debuck3 + "n=" + debuckn);
-		//	System.out.println("testss=" + debucka + "testss2=" + debucka2 + "testss3=" + debucka3 + "ssn=" + debuckan);
 
-		if (DEBUG_LEFT.isPressed())
-			deb_ido_x++;
-
-		if (DEBUG_RIGHT.isPressed())
-			deb_ido_x--;
-
-		if (DEBUG_UP.isPressed())
-			deb_ido_y++;
-
-		if (DEBUG_DOWN.isPressed())
-			deb_ido_y--;
-
-		if (DEBUG_PUSH.isPressed())
-			deb_ido_z++;
-
-		if (DEUBG_PULL.isPressed())
-			deb_ido_z--;
-
-		if (DEBUG_LEFT2.isPressed())
-			deb_kakudo_x++;
-
-		if (DEBUG_RIGHT2.isPressed())
-			deb_kakudo_x--;
-
-		if (DEBUG_UP2.isPressed())
-			deb_kakudo_y++;
-
-		if (DEBUG_DOWN2.isPressed())
-			deb_kakudo_y--;
-
-		if (DEBUG_PUSH2.isPressed())
-			deb_kakudo_z++;
-
-		if (DEUBG_PULL2.isPressed())
-			deb_kakudo_z--;
-
-		if (DEBUG_RESET.isPressed()) {
-
-			deb_ido_x = 0;
-			deb_ido_y = 0;
-			deb_ido_z = 0;
-			deb_kakudo_x = 0;
-			deb_kakudo_y = 0;
-			deb_kakudo_z = 0;
+		if (DEBUG_LEFT.isPressed()) {
+			if (bangou == 0)
+				deb_ido_x += bairitu;
+			else if (bangou == 1)
+				deb_ido_x2 += bairitu;
+		}
+		if (DEBUG_RIGHT.isPressed()) {
+			if (bangou == 0)
+				deb_ido_x -= bairitu;
+			else if (bangou == 1)
+				deb_ido_x2 -= bairitu;
+		}
+		if (DEBUG_UP.isPressed()) {
+			if (bangou == 0)
+				deb_ido_y += bairitu;
+			else if (bangou == 1)
+				deb_ido_y2 += bairitu;
+		}
+		if (DEBUG_DOWN.isPressed()) {
+			if (bangou == 0)
+				deb_ido_y -= bairitu;
+			else if (bangou == 1)
+				deb_ido_y2 -= bairitu;
+		}
+		if (DEBUG_PUSH.isPressed()) {
+			if (bangou == 0)
+				deb_ido_z += bairitu;
+			else if (bangou == 1)
+				deb_ido_z2 += bairitu;
+		}
+		if (DEUBG_PULL.isPressed()) {
+			if (bangou == 0)
+				deb_ido_z -= bairitu;
+			else if (bangou == 1)
+				deb_ido_z2 -= bairitu;
 
 		}
+		if (DEBUG_LEFT2.isPressed()) {
+			if (bangou == 0)
+				deb_kakudo_x += bairitu;
+			else if (bangou == 1)
+				deb_kakudo_x2 += bairitu;
+		}
+		if (DEBUG_RIGHT2.isPressed()) {
+			if (bangou == 0)
+				deb_kakudo_x -= bairitu;
+			else if (bangou == 1)
+				deb_kakudo_x2 -= bairitu;
+		}
+		if (DEBUG_UP2.isPressed()) {
+			if (bangou == 0)
+				deb_kakudo_y += bairitu;
+			else if (bangou == 1)
+				deb_kakudo_y2 += bairitu;
 
-		setJ(100, 10);
+		}
+		if (DEBUG_DOWN2.isPressed()) {
+			if (bangou == 0)
+				deb_kakudo_y -= bairitu;
+			else if (bangou == 1)
+				deb_kakudo_y2 -= bairitu;
+		}
+		if (DEBUG_PUSH2.isPressed()) {
+			if (bangou == 0)
+				deb_kakudo_z += bairitu;
+			else if (bangou == 1)
+				deb_kakudo_z2 += bairitu;
+		}
+		if (DEUBG_PULL2.isPressed()) {
+			if (bangou == 0)
+				deb_kakudo_z -= bairitu;
+			else if (bangou == 1)
+				deb_kakudo_z2 -= bairitu;
+		}
+		if (DEBUG_RESET.isPressed()) {
+			if (bangou == 0) {
+				init();
+			} else if (bangou == 1) {
+				deb_ido_x2 = 0;
+				deb_ido_y2 = 0;
+				deb_ido_z2 = 0;
+				deb_kakudo_x2 = 0;
+				deb_kakudo_y2 = 0;
+				deb_kakudo_z2 = 0;
+			}
 
+			bairitu = 1;
+		}
+		if (DEBUG_BANGOU_UP.isPressed()) {
+			bangou++;
+			mc.player.sendChatMessage("bangou=" + bangou);
+
+		}
+		if (DEBUG_BANGOU_DOWN.isPressed()) {
+			bangou--;
+			mc.player.sendChatMessage("bangou=" + bangou);
+
+		}
+		if (DEBUG_BAIRITU_UP.isPressed()) {
+			bairitu *= 10;
+			mc.player.sendChatMessage("bairitu=" + bairitu);
+
+		}
+		if (DEBUG_BAIRITU_DOWN.isPressed()) {
+			bairitu /= 10;
+			mc.player.sendChatMessage("bairitu=" + bairitu);
+
+		}
 		if (DEBUG_OUT.isPressed()) {
-			System.out.println("[" + deb_ido_x_j + "f, " + deb_ido_y_j + "f, "
-					+ deb_ido_z_j + "f, " + deb_kakudo_x_j + "f, "
-					+ deb_kakudo_y_j
-					+ "f, " + deb_kakudo_z_j + "f" + "]");
+			System.out.println("[" + deb_ido_x + "f, " + deb_ido_y + "f, "
+					+ deb_ido_z + "f, " + deb_kakudo_x + "f, "
+					+ deb_kakudo_y
+					+ "f, " + deb_kakudo_z + "f" + "]");
 
 			mc.player.sendChatMessage(
-					"output:" + "[" + deb_ido_x_j + "f, " + deb_ido_y_j + "f, "
-							+ deb_ido_z_j + "f, " + deb_kakudo_x_j + "f, "
-							+ deb_kakudo_y_j
-							+ "f, " + deb_kakudo_z_j + "f" + "]");
+					"output:" + "[" + deb_ido_x + "f, " + deb_ido_y + "f, "
+							+ deb_ido_z + "f, " + deb_kakudo_x + "f, "
+							+ deb_kakudo_y
+							+ "f, " + deb_kakudo_z + "f" + "]");
 		}
 
 	}

@@ -30,7 +30,11 @@ public class ClientProxy extends CommonProxy {
 
 		ClientRegistry.registerKeyBinding(KeyHandler.DEBUG_OUT);
 		ClientRegistry.registerKeyBinding(KeyHandler.DEBUG_RESET);
-
+		ClientRegistry.registerKeyBinding(KeyHandler.DEBUG_BAIRITU_UP);
+		ClientRegistry.registerKeyBinding(KeyHandler.DEBUG_BAIRITU_DOWN);
+		ClientRegistry.registerKeyBinding(KeyHandler.DEBUG_BANGOU_UP);
+		ClientRegistry.registerKeyBinding(KeyHandler.DEBUG_BANGOU_DOWN);
+		KeyHandler.init();
 	}
 
 	public static void clientInit() {

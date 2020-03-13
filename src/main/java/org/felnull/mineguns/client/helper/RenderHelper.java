@@ -20,7 +20,21 @@ public class RenderHelper {
 	public static Minecraft mc = Minecraft.getInstance();
 	private static IRenderTypeBuffer Impl = IRenderTypeBuffer.func_228455_a_(new BufferBuilder(256));
 
-	public static void renderGunHand(Hand hand, double tx, double ty, double tz, float rx, float ry, float rz) {
+	public static void renderGunHand(Hand hand, float tx, float ty, float tz, float rx, float ry, float rz,
+			float degree, float dtx, float dty, float dtz, float drx, float dry, float drz) {
+
+		renderGunHand(hand, tx + (dtx * degree), ty + (dty * degree), tz + (dtz * degree),
+				rx + (drx * degree), ry + (dry * degree), rz + (drz * degree));
+	}
+
+	public static void renderGunItem(ItemStack stack, TransformType handtyape, float scale, float tx, float ty,
+			float tz, float rx, float ry, float rz, float degree, float dtx, float dty, float dtz, float drx, float dry,
+			float drz) {
+		RenderHelper.renderGunItem(stack, handtyape, scale, tx + (dtx * degree), ty + (dty * degree),
+				tz + (dtz * degree), rx + (drx * degree), ry + (dry * degree), rz + (drz * degree));
+	}
+
+	public static void renderGunHand(Hand hand, float tx, float ty, float tz, float rx, float ry, float rz) {
 		AbstractClientPlayerEntity pl = mc.player;
 		mc.getTextureManager().bindTexture(pl.getLocationSkin());
 		PlayerRenderer plr = (PlayerRenderer) mc.getRenderManager().getRenderer(pl);
@@ -41,11 +55,10 @@ public class RenderHelper {
 			plr.func_229146_b_(ms, Impl, 150, pl);
 		else
 			plr.func_229144_a_(ms, Impl, 150, pl);
-
 	}
 
-	public static void renderGunItem(ItemStack item, TransformType handtyape, float scale, float tx, float ty, float tz,
-			float rx, float ry, float rz) {
+	public static void renderGunItem(ItemStack item, TransformType handtyape, float scale, float tx, float ty,
+			float tz, float rx, float ry, float rz) {
 
 		if (handtyape == TransformType.FIRST_PERSON_LEFT_HAND) {
 			tx *= -1;
@@ -54,15 +67,15 @@ public class RenderHelper {
 		}
 
 		MatrixStack ms = new MatrixStack();
-		GL11.glPushMatrix();
+
 		ms.func_227863_a_(new Quaternion(rx, 0, 0, 1));
 		ms.func_227863_a_(new Quaternion(0, ry, 0, 1));
 		ms.func_227863_a_(new Quaternion(0, 0, rz, 1));
-		ms.func_227862_a_(3, 3, 3);
+		ms.func_227862_a_(scale, scale, scale);
 		ms.func_227861_a_(tx, ty, tz);
 		FirstPersonRenderer fpr = mc.getFirstPersonRenderer();
-		fpr.func_228397_a_(mc.player, item, handtyape, false, ms, Impl, 150);
-		GL11.glPopMatrix();
+		fpr.func_228397_a_(mc.player, item, handtyape, true, ms, Impl, 150);
+
 	}
 
 	public static void glAllRotatef(float x, float y, float z) {
@@ -71,17 +84,31 @@ public class RenderHelper {
 		GL11.glRotatef(z, 0, 0, 1);
 	}
 
-	public static void glTranslatefDegree(float degree, float x, float y, float z) {
-		GL11.glTranslatef(x * degree, y * degree, z * degree);
+	public static void glTranslatefDegree(float degree, float x, float y, float z, boolean inversion) {
+		if (!inversion)
+			GL11.glTranslatef(x * degree, y * degree, z * degree);
+		else
+			GL11.glTranslatef(-x * degree, -y * degree, z * degree);
+
 	}
 
-	public static void glRotatefDegree(float degree, float x, float y, float z) {
-		glAllRotatef(x * degree, y * degree, z * degree);
+	public static void glRotatefDegree(float degree, float x, float y, float z, boolean inversion) {
+		if (!inversion)
+			glAllRotatef(x * degree, y * degree, z * degree);
+		else
+			glAllRotatef(-x * degree, -y * degree, z * degree);
 	}
 
-	public static void gTranslateflRotatefDegree(float degree, float tx, float ty, float tz, float rx, float ry,
+	public static void glTranslateflRotatefDegree(float degree, float tx, float ty, float tz, float rx, float ry,
+			float rz, boolean inversion) {
+		glTranslatefDegree(degree, tx, ty, tz, inversion);
+		glRotatefDegree(degree, rx, ry, rz, inversion);
+	}
+
+	public static void glTranslateflRotatef(float tx, float ty, float tz, float rx, float ry,
 			float rz) {
-		glTranslatefDegree(degree, tx, ty, tz);
-		glRotatefDegree(degree, rx, ry, rz);
+		GL11.glTranslatef(tx, ty, tz);
+		glAllRotatef(rx, ry, rz);
+
 	}
 }

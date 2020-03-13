@@ -1,5 +1,6 @@
 package org.felnull.mineguns.client.handler;
 
+import org.felnull.mineguns.client.helper.RenderHelper;
 import org.felnull.mineguns.client.render.gun.animaiton.GunAnimation;
 import org.felnull.mineguns.item.GunItem;
 import org.lwjgl.opengl.GL11;
@@ -24,6 +25,9 @@ public class RenderHandler {
 
 		if (e.getItemStack().getItem() instanceof GunItem) {
 			GL11.glPushMatrix();
+			RenderHelper.glTranslateflRotatef(KeyHandler.deb_ido_x2, KeyHandler.deb_ido_y2, KeyHandler.deb_ido_z2,
+					KeyHandler.deb_kakudo_x2, KeyHandler.deb_kakudo_y2, KeyHandler.deb_kakudo_z2);
+
 			//	GL11.glTranslatef(0, -e.getEquipProgress() * 3, 0);
 			GunItem gun = (GunItem) e.getItemStack().getItem();
 			GunAnimation animation = gun.getGun().getGunAnimation();

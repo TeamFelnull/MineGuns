@@ -1,5 +1,7 @@
 package org.felnull.mineguns.client.render.gun.animaiton;
 
+import org.felnull.mineguns.util.GunHelper;
+
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
@@ -16,40 +18,43 @@ public class GunAnimation {
 	public void renderHand(Hand hand, ItemStack stack) {
 		PlayerEntity pl = mc.player;
 
+		float holdpar = (float) GunHelper.getHoldProgress(stack) / (float) GunHelper.getHold(stack);
+
 		if (mc.gameSettings.mainHand == HandSide.RIGHT) {
 			if (hand == Hand.MAIN_HAND) {
 				if (pl.getHeldItemOffhand().isEmpty())
-					renderRightHand(stack);
+					renderRightHand(stack, holdpar);
 				else
-					renderRightOnryHand(stack);
+					renderRightOnryHand(stack, holdpar);
 			} else
-				renderLeftOnryHand(stack);
+				renderLeftOnryHand(stack, holdpar);
 		} else {
 
 			if (hand == Hand.MAIN_HAND) {
 				if (pl.getHeldItemOffhand().isEmpty())
-					renderLeftHand(stack);
+					renderLeftHand(stack, holdpar);
 				else
-					renderLeftOnryHand(stack);
+					renderLeftOnryHand(stack, holdpar);
 			} else
-				renderRightOnryHand(stack);
+				renderRightOnryHand(stack, holdpar);
 
 		}
 	}
 
-	public void renderLeftHand(ItemStack stack) {
+	public void renderRightHand(ItemStack stack, float holdpar) {
 
 	}
 
-	public void renderRightHand(ItemStack stack) {
+	public void renderLeftHand(ItemStack stack, float holdpar) {
 
 	}
 
-	public void renderLeftOnryHand(ItemStack stack) {
+	public void renderRightOnryHand(ItemStack stack, float holdpar) {
 
 	}
 
-	public void renderRightOnryHand(ItemStack stack) {
+	public void renderLeftOnryHand(ItemStack stack, float holdpar) {
 
 	}
+
 }

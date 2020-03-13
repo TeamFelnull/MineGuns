@@ -67,7 +67,7 @@ public class Gun {
 
 	public void shot(ItemStack item, Entity attacker, World worldIn) {
 		worldIn.playSound((PlayerEntity) null, attacker.func_226277_ct_(), attacker.func_226278_cu_(),
-				attacker.func_226281_cx_(), SoundEvents.ENTITY_SNOWBALL_THROW, SoundCategory.NEUTRAL, 0.5F,
+				attacker.func_226281_cx_(), SoundEvents.BLOCK_IRON_DOOR_OPEN, SoundCategory.NEUTRAL, 0.5F,
 				0.4F / (new Random().nextFloat() * 0.4F + 0.8F));
 		if (!worldIn.isRemote) {
 			SnowballEntity snowballentity = new SnowballEntity(worldIn, (LivingEntity) attacker);
