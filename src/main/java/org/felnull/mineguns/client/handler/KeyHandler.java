@@ -73,7 +73,7 @@ public class KeyHandler {
 			"key.categories.mineguns.debug");
 
 	public static void init() {
-		set(-0.7299993f, 0.04699999f, 0.16800275f, -0.029000001f, -0.028f, -0.163f);
+		set(0.43999988f, -0.27000004f, -0.76999974f, 0.030000014f, 0.03f, 0.0f);
 		//	set(0, 0, 0, 0, 0, 0);
 	}
 

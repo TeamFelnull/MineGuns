@@ -3,14 +3,14 @@ package org.felnull.mineguns.gun.tyape;
 import net.minecraft.client.resources.I18n;
 
 public class GunTyape {
-	private String Name;// 蜷榊燕
-	private float DamegeCorrection;// 謾ｻ謦�蜉�
-	private float KnockbackCorrection;// 繝弱ャ繧ｯ繝舌ャ繧ｯ
-	private float PropulsionCorrection;// 謗ｨ騾ｲ蜉�
-	private float PenetratingCorrection;// 雋ｫ騾壼鴨
-	private float BlazeCorrection;// 騾｣蟆�蜉�
-	private float EnduranceCorrection;// 閠蝉ｹ�蜉�
-	private float AccuracyCorrection;// 邊ｾ蠎ｦ
+	private String Name;
+	private float DamegeCorrection;
+	private float KnockbackCorrection;
+	private float PropulsionCorrection;
+	private float PenetratingCorrection;
+	private float BlazeCorrection;
+	private float EnduranceCorrection;
+	private float AccuracyCorrection;
 	private float HoldCorrection;
 
 	public GunTyape(String name, float damegecorrection, float knockbackcorrection, float propulsioncorrection,

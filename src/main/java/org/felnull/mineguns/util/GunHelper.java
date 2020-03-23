@@ -50,13 +50,30 @@ public class GunHelper {
 		return 0;
 	}
 
-	public static boolean isSemiAuto(ItemStack item) {
+	public static int getBurst(ItemStack item) {
+
 		if (!(item.getItem() instanceof GunItem))
-			return false;
+			return 0;
 
 		GunItem gun = (GunItem) item.getItem();
 
-		return gun.getGun().isBaseSemiAuto();
+		return gun.getGun().getBaseBurst();
+	}
+
+	public static int getBurstCount(ItemStack item) {
+
+		CompoundNBT nbt = item.getTag();
+
+		if (nbt != null)
+			return nbt.getInt("BurstCount");
+
+		return 0;
+	}
+
+	public static void setBurstCount(ItemStack item, int value) {
+		CompoundNBT nbt = item.getOrCreateTag();
+		nbt.putInt("BurstCount", value);
+
 	}
 
 	public static int getCapacity(ItemStack item) {
