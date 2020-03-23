@@ -4,8 +4,8 @@ import org.felnull.mineguns.item.GunItem;
 import org.felnull.mineguns.util.GunHelper;
 
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.Hand;
 import net.minecraftforge.event.TickEvent.PlayerTickEvent;
 import net.minecraftforge.event.TickEvent.ServerTickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -21,49 +21,35 @@ public class ServerHandler {
 
 	@SubscribeEvent
 	public static void onPlayerTick(PlayerTickEvent e) {
-
 		PlayerEntity pl = e.player;
-		Item mainitem = pl.getHeldItemMainhand().getItem();
-		Item offitem = pl.getHeldItemOffhand().getItem();
-		ItemStack mainstack = pl.getHeldItemMainhand();
-		ItemStack offstack = pl.getHeldItemOffhand();
 
-		if ((mainitem instanceof GunItem)) {
-			if (GunHelper.getShotCooldwon(mainstack) >= 1) {
-				GunHelper.setShotCooldwon(mainstack,
-						GunHelper.getShotCooldwon(mainstack) - 1);
-			}
+		itemUpdate(pl, Hand.MAIN_HAND);
+		itemUpdate(pl, Hand.OFF_HAND);
+	}
 
-			int holdprograses = GunHelper.getHoldProgress(mainstack);
-			if (GunHelper.isHolding(mainstack)) {
+	private static void itemUpdate(PlayerEntity pl, Hand hand) {
+		ItemStack itemstack = hand == Hand.MAIN_HAND ? pl.getHeldItemOffhand() : pl.getHeldItemMainhand();
 
-				if (holdprograses <= GunHelper.getHold(mainstack) - 1)
-					GunHelper.setHoldProgress(mainstack, holdprograses + 1);
-
-			} else {
-
-				if (holdprograses >= 1)
-					GunHelper.setHoldProgress(mainstack, holdprograses - 1);
-
-			}
+		if (itemstack.getItem() instanceof GunItem) {
+			shotCooldwon(itemstack);
+			holdPrograses(itemstack);
 		}
-		if ((offitem instanceof GunItem)) {
-			if (GunHelper.getShotCooldwon(offstack) >= 1) {
-				GunHelper.setShotCooldwon(offstack,
-						GunHelper.getShotCooldwon(offstack) - 1);
-			}
-			int holdprograses = GunHelper.getHoldProgress(offstack);
-			if (GunHelper.isHolding(offstack)) {
+	}
 
-				if (holdprograses <= GunHelper.getHold(offstack) - 1)
-					GunHelper.setHoldProgress(offstack, holdprograses + 1);
+	private static void shotCooldwon(ItemStack itemstack) {
+		if (GunHelper.getShotCooldwon(itemstack) >= 1)
+			GunHelper.setShotCooldwon(itemstack,
+					GunHelper.getShotCooldwon(itemstack) - 1);
+	}
 
-			} else {
-
-				if (holdprograses >= 1)
-					GunHelper.setHoldProgress(offstack, holdprograses - 1);
-
-			}
+	private static void holdPrograses(ItemStack itemstack) {
+		int holdprograses = GunHelper.getHoldProgress(itemstack);
+		if (GunHelper.isHolding(itemstack)) {
+			if (holdprograses <= GunHelper.getHold(itemstack) - 1)
+				GunHelper.setHoldProgress(itemstack, holdprograses + 1);
+		} else {
+			if (holdprograses >= 1)
+				GunHelper.setHoldProgress(itemstack, holdprograses - 1);
 		}
 	}
 }

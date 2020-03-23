@@ -23,6 +23,11 @@ public class GunHelper {
 
 	}
 
+	public static boolean isMaxHolding(ItemStack item) {
+
+		return getHoldProgress(item) == getHold(item);
+	}
+
 	public static boolean isHolding(ItemStack item) {
 		CompoundNBT nbt = item.getTag();
 

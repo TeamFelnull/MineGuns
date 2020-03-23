@@ -82,11 +82,18 @@ public class Gun {
 	}
 
 	public boolean canShot(ItemStack item, Entity attacker, World worldIn) {
-		if ((item.getItem() instanceof GunItem) && (GunHelper.getShotCooldwon(item) <= 0)) {
+		if ((item.getItem() instanceof GunItem) && (GunHelper.getShotCooldwon(item) <= 0)
+				&& (GunHelper.getHoldProgress(item) == 0
+						|| GunHelper.getHoldProgress(item) == GunHelper.getHold(item))) {
+
 			if (GunHelper.getBurstCount(item) <= (GunHelper.getBurst(item) - 1) || GunHelper.getBurst(item) <= 0)
 				return true;
 		}
 		return false;
+	}
+
+	public void hold(ItemStack itemstack, Entity attacker, World worldIn) {
+
 	}
 
 	public String getName() {
