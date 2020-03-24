@@ -1,9 +1,13 @@
 package org.felnull.mineguns.proxy;
 
+import org.felnull.mineguns.MineGuns;
 import org.felnull.mineguns.client.handler.ClientHandler;
 import org.felnull.mineguns.client.handler.KeyHandler;
 import org.felnull.mineguns.client.handler.RenderHandler;
 
+import net.minecraftforge.client.event.InputEvent;
+import net.minecraftforge.client.event.RenderHandEvent;
+import net.minecraftforge.client.event.RenderPlayerEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.TickEvent.ClientTickEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
@@ -13,6 +17,10 @@ public class ClientProxy extends CommonProxy {
 	@Override
 	public void preInit() {
 		super.preInit();
+	}
+
+	public static void clientInit() {
+		MineGuns.LOGGER.info("Client Initing...");
 		MinecraftForge.EVENT_BUS.register(KeyHandler.class);
 
 		ClientRegistry.registerKeyBinding(KeyHandler.DEBUG_LEFT);
@@ -36,12 +44,18 @@ public class ClientProxy extends CommonProxy {
 		ClientRegistry.registerKeyBinding(KeyHandler.DEBUG_BANGOU_UP);
 		ClientRegistry.registerKeyBinding(KeyHandler.DEBUG_BANGOU_DOWN);
 		KeyHandler.init();
-	}
 
-	public static void clientInit() {
 		MinecraftForge.EVENT_BUS.addListener(EventPriority.NORMAL, false, ClientTickEvent.class,
 				new ClientHandler()::onTick);
-		MinecraftForge.EVENT_BUS.register(RenderHandler.class);
+
+		MinecraftForge.EVENT_BUS.addListener(EventPriority.NORMAL, false, RenderPlayerEvent.Pre.class,
+				new RenderHandler()::onRenderPlayer);
+
+		MinecraftForge.EVENT_BUS.addListener(EventPriority.NORMAL, false, RenderHandEvent.class,
+				new RenderHandler()::onRenderHand);
+
+		MinecraftForge.EVENT_BUS.addListener(EventPriority.NORMAL, false, InputEvent.KeyInputEvent.class,
+				new KeyHandler()::onKeyInput);
 	}
 
 	@Override

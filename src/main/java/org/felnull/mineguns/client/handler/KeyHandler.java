@@ -4,7 +4,7 @@ import org.lwjgl.glfw.GLFW;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.settings.KeyBinding;
-import net.minecraftforge.client.event.InputEvent.KeyInputEvent;
+import net.minecraftforge.client.event.InputEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 public class KeyHandler {
@@ -89,7 +89,7 @@ public class KeyHandler {
 	}
 
 	@SubscribeEvent
-	public static void onKeyInput(KeyInputEvent e) {
+	public void onKeyInput(InputEvent.KeyInputEvent e) {
 
 		if (DEBUG_LEFT.isPressed()) {
 			if (bangou == 0)

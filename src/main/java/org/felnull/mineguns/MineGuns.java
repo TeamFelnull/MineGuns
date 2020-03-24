@@ -34,9 +34,7 @@ public class MineGuns {
 	}
 
 	private void setup(final FMLCommonSetupEvent event) {
-		LOGGER.info("SetUping...");
 		proxy.preInit();
-
 	}
 
 	private void doClientStuff(final FMLClientSetupEvent event) {

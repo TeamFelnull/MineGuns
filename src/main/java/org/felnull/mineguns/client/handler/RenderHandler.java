@@ -17,14 +17,13 @@ import net.minecraft.util.HandSide;
 import net.minecraftforge.client.event.RenderHandEvent;
 import net.minecraftforge.client.event.RenderPlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
 
-@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
+
 public class RenderHandler {
 	public static Minecraft mc = Minecraft.getInstance();
 
 	@SubscribeEvent
-	public static void onRenderPlayer(RenderPlayerEvent.Pre e) {
+	public void onRenderPlayer(RenderPlayerEvent.Pre e) {
 
 		if (e.getPlayer().getHeldItemMainhand().getItem() instanceof GunItem
 				&& GunHelper.isMaxHolding(e.getPlayer().getHeldItemMainhand())) {
@@ -59,7 +58,7 @@ public class RenderHandler {
 	}
 
 	@SubscribeEvent
-	public static void onRenderSpecificHand(RenderHandEvent e) {
+	public void onRenderHand(RenderHandEvent e) {
 		PlayerEntity pl = mc.player;
 		GL11.glPushMatrix();
 

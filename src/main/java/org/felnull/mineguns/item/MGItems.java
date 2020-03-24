@@ -35,16 +35,11 @@ public class MGItems {
 			.setRegistryName(MineGuns.MODID, "mk23");
 
 	public static void registerItem(IForgeRegistry<Item> r) {
-		// Item
-		r.register(TEST_ITEM);
-		r.register(IRON_GEAR);
-		r.register(IRON_PLATE);
-		r.register(BULLET);
+		registryItem(r, TEST_ITEM);
+	}
 
-		//Gun
-		r.register(TEST_GUN);
-		r.register(TMP_GUN);
-		r.register(HK433_GUN);
-		r.register(MK23_GUN);
+	public static void registryItem(IForgeRegistry<Item> r, Item i) {
+		MineGuns.LOGGER.info("Registering Item : " + i.getRegistryName());
+		r.register(i);
 	}
 }

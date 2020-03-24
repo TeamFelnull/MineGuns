@@ -19,10 +19,11 @@ public class MGBlocks {
 	}
 
 	public static void registerItem(IForgeRegistry<Item> r) {
-		registerBlockItem(r, TEST_BLOCK, MGItemGroup.MINEGUN_TAB);
+		registryBlockItem(r, TEST_BLOCK, MGItemGroup.MINEGUN_TAB);
 	}
 
-	public static void registerBlockItem(IForgeRegistry<Item> r, Block b, ItemGroup tab) {
+	public static void registryBlockItem(IForgeRegistry<Item> r, Block b, ItemGroup tab) {
+		MineGuns.LOGGER.info("Registering BlockItem : " + b.getRegistryName());
 		r.register(new BlockItem(b, new Item.Properties().group(tab)).setRegistryName(b.getRegistryName()));
 	}
 }
