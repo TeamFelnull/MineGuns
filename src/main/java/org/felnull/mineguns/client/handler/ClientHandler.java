@@ -16,7 +16,7 @@ public class ClientHandler {
 	public static Minecraft mc = Minecraft.getInstance();
 
 	@SubscribeEvent
-	public  void onTick(ClientTickEvent e) {
+	public static void onTick(ClientTickEvent e) {
 		if (mc.player != null) {
 			sendGunState(Hand.MAIN_HAND);
 			sendGunState(Hand.OFF_HAND);
