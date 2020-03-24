@@ -5,13 +5,14 @@ import org.felnull.mineguns.client.handler.KeyHandler;
 import org.felnull.mineguns.client.handler.RenderHandler;
 
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.TickEvent.ClientTickEvent;
+import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 
 public class ClientProxy extends CommonProxy {
 	@Override
 	public void preInit() {
 		super.preInit();
-		MinecraftForge.EVENT_BUS.register(ClientHandler.class);
 		MinecraftForge.EVENT_BUS.register(KeyHandler.class);
 
 		ClientRegistry.registerKeyBinding(KeyHandler.DEBUG_LEFT);
@@ -38,7 +39,8 @@ public class ClientProxy extends CommonProxy {
 	}
 
 	public static void clientInit() {
-
+		MinecraftForge.EVENT_BUS.addListener(EventPriority.NORMAL, false, ClientTickEvent.class,
+				new ClientHandler()::onTick);
 		MinecraftForge.EVENT_BUS.register(RenderHandler.class);
 	}
 
