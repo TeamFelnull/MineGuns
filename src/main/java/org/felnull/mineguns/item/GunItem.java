@@ -23,12 +23,12 @@ public class GunItem extends Item {
 
 	public GunItem(Item.Properties builder, Gun gun) {
 		super(builder.maxStackSize(1));
-
 		this.Gun = gun;
 
 	}
 
 	public Gun getGun() {
+
 		return Gun;
 	}
 

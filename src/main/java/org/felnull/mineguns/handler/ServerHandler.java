@@ -33,7 +33,13 @@ public class ServerHandler {
 		if (itemstack.getItem() instanceof GunItem) {
 			shotCooldwon(itemstack);
 			holdPrograses(itemstack);
+			holding(itemstack, pl);
 		}
+	}
+
+	private static void holding(ItemStack itemstack, PlayerEntity pl) {
+		if (GunHelper.isMaxHolding(itemstack))
+			((GunItem) itemstack.getItem()).getGun().hold(itemstack, pl, pl.world);
 	}
 
 	private static void shotCooldwon(ItemStack itemstack) {

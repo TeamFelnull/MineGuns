@@ -7,11 +7,7 @@ import org.felnull.mineguns.gun.tyape.GunTyape;
 import org.felnull.mineguns.item.GunItem;
 import org.felnull.mineguns.item.MGItems;
 import org.felnull.mineguns.util.GunHelper;
-import org.lwjgl.opengl.GL11;
 
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.entity.player.AbstractClientPlayerEntity;
-import net.minecraft.client.renderer.entity.PlayerRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -20,7 +16,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.world.World;
-import net.minecraftforge.client.event.RenderHandEvent;
 
 public class Gun {
 	private String Name;// 名前
@@ -54,18 +49,6 @@ public class Gun {
 		this.Hold = hold;
 	}
 
-	public void renderSpecificHand(RenderHandEvent e) {
-		Minecraft mc = Minecraft.getInstance();
-		GL11.glPushMatrix();
-		AbstractClientPlayerEntity abstractclientplayerentity = mc.player;
-		PlayerRenderer playerrenderer = (PlayerRenderer) mc.getRenderManager().getRenderer(abstractclientplayerentity);
-		playerrenderer.func_225627_b_(abstractclientplayerentity, 1);
-
-		GL11.glPopMatrix();
-
-		e.setCanceled(true);
-	}
-
 	public void shot(ItemStack itemstack, Entity attacker, World worldIn) {
 		worldIn.playSound((PlayerEntity) null, attacker.func_226277_ct_(), attacker.func_226278_cu_(),
 				attacker.func_226281_cx_(), SoundEvents.BLOCK_IRON_DOOR_OPEN, SoundCategory.NEUTRAL, 0.5F,
@@ -83,16 +66,14 @@ public class Gun {
 
 	public boolean canShot(ItemStack item, Entity attacker, World worldIn) {
 		if ((item.getItem() instanceof GunItem) && (GunHelper.getShotCooldwon(item) <= 0)
-				&& (GunHelper.getHoldProgress(item) == 0
-						|| GunHelper.getHoldProgress(item) == GunHelper.getHold(item))) {
-
+				&& (GunHelper.getHoldProgress(item) == 0 || GunHelper.isMaxHolding(item))) {
 			if (GunHelper.getBurstCount(item) <= (GunHelper.getBurst(item) - 1) || GunHelper.getBurst(item) <= 0)
 				return true;
 		}
 		return false;
 	}
 
-	public void hold(ItemStack itemstack, Entity attacker, World worldIn) {
+	public void hold(ItemStack itemstack, Entity holder, World worldIn) {
 
 	}
 

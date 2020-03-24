@@ -27,11 +27,33 @@ public class RenderHelper {
 				rx + (drx * degree), ry + (dry * degree), rz + (drz * degree));
 	}
 
-	public static void renderGunItem(ItemStack stack, TransformType handtyape, float scale, float tx, float ty,
+	public static void renderGunHand(Hand hand, float tx, float ty, float tz, float rx, float ry, float rz,
+			float degree, float dtx, float dty, float dtz, float drx, float dry, float drz, float bdegree, float btx,
+			float bty, float btz, float brx, float bry, float brz) {
+		renderGunHand(hand, tx + (dtx * degree) + (btx * bdegree),
+				ty + (dty * degree) + (bty * bdegree),
+				tz + (dtz * degree) + (btz * bdegree), rx + (drx * degree) + (brx * bdegree),
+				ry + (dry * degree) + (bry * bdegree), rz + (drz * degree) + (brz * bdegree));
+	}
+
+	public static void renderGunItem(ItemStack stack, TransformType handtyape, float scalex, float scaley, float scalez,
+			float tx, float ty,
 			float tz, float rx, float ry, float rz, float degree, float dtx, float dty, float dtz, float drx, float dry,
 			float drz) {
-		RenderHelper.renderGunItem(stack, handtyape, scale, tx + (dtx * degree), ty + (dty * degree),
+		RenderHelper.renderGunItem(stack, handtyape, scalex, scaley, scalez, tx + (dtx * degree), ty + (dty * degree),
 				tz + (dtz * degree), rx + (drx * degree), ry + (dry * degree), rz + (drz * degree));
+	}
+
+	public static void renderGunItem(ItemStack stack, TransformType handtyape, float scalex, float scaley, float scalez,
+			float tx, float ty,
+			float tz, float rx, float ry, float rz, float degree, float dtx, float dty, float dtz, float drx, float dry,
+			float drz, float bdegree, float btx, float bty, float btz, float brx, float bry, float brz) {
+
+		RenderHelper.renderGunItem(stack, handtyape, scalex, scaley, scalez, tx + (dtx * degree) + (btx * bdegree),
+				ty + (dty * degree) + (bty * bdegree),
+				tz + (dtz * degree) + (btz * bdegree), rx + (drx * degree) + (brx * bdegree),
+				ry + (dry * degree) + (bry * bdegree), rz + (drz * degree) + (brz * bdegree));
+
 	}
 
 	public static void renderGunHand(Hand hand, float tx, float ty, float tz, float rx, float ry, float rz) {
@@ -57,7 +79,8 @@ public class RenderHelper {
 			plr.func_229144_a_(ms, Impl, 150, pl);
 	}
 
-	public static void renderGunItem(ItemStack item, TransformType handtyape, float scale, float tx, float ty,
+	public static void renderGunItem(ItemStack item, TransformType handtyape, float scalex, float scaley, float scalez,
+			float tx, float ty,
 			float tz, float rx, float ry, float rz) {
 
 		if (handtyape == TransformType.FIRST_PERSON_LEFT_HAND) {
@@ -71,7 +94,7 @@ public class RenderHelper {
 		ms.func_227863_a_(new Quaternion(rx, 0, 0, 1));
 		ms.func_227863_a_(new Quaternion(0, ry, 0, 1));
 		ms.func_227863_a_(new Quaternion(0, 0, rz, 1));
-		ms.func_227862_a_(scale, scale, scale);
+		ms.func_227862_a_(scalex, scaley, scalez);
 		ms.func_227861_a_(tx, ty, tz);
 		FirstPersonRenderer fpr = mc.getFirstPersonRenderer();
 		fpr.func_228397_a_(mc.player, item, handtyape, true, ms, Impl, 150);
