@@ -6,6 +6,7 @@ import org.felnull.mineguns.client.render.gun.animaiton.GunAnimation;
 import org.felnull.mineguns.gun.tyape.GunTyape;
 import org.felnull.mineguns.item.GunItem;
 import org.felnull.mineguns.item.MGItems;
+import org.felnull.mineguns.registries.MGRegistrier;
 import org.felnull.mineguns.util.GunHelper;
 
 import net.minecraft.entity.Entity;
@@ -20,7 +21,6 @@ import net.minecraft.world.World;
 public class Gun {
 	private String Name;// 名前
 	private GunTyape GunTyape;// 銃タイプ
-	private GunAnimation GunAnimation;// 銃描画
 	private int Burst;//バースド数（0でフルオート,1でセミオート)
 	private int Capacity;// 装填数
 	private float Damege;// 攻撃力
@@ -32,7 +32,7 @@ public class Gun {
 	private float Accuracy;// 精度
 	private int Hold; //構え速度
 
-	public Gun(String name, GunTyape guntyape, GunAnimation gunanimation, int burst, int capacity, float damege,
+	public Gun(String name, GunTyape guntyape, int burst, int capacity, float damege,
 			float knockback, float propulsion, float penetrating, int blaze, int endurance, float accuracy, int hold) {
 		this.Name = name;
 		this.Burst = burst;
@@ -45,7 +45,6 @@ public class Gun {
 		this.GunTyape = guntyape;
 		this.Endurance = endurance;
 		this.Accuracy = accuracy;
-		this.GunAnimation = gunanimation;
 		this.Hold = hold;
 	}
 
@@ -86,7 +85,7 @@ public class Gun {
 	}
 
 	public GunAnimation getGunAnimation() {
-		return this.GunAnimation;
+		return MGRegistrier.getGunAnimation(this);
 	}
 
 	public int getBaseBurst() {

@@ -1,6 +1,7 @@
 package org.felnull.mineguns.proxy;
 
 import org.felnull.mineguns.MineGuns;
+import org.felnull.mineguns.gun.MGGuns;
 import org.felnull.mineguns.handler.ServerHandler;
 import org.felnull.mineguns.packet.PacketHandler;
 
@@ -12,6 +13,7 @@ public class CommonProxy {
 		MineGuns.LOGGER.info("Pre Initing...");
 		PacketHandler.init();
 		MinecraftForge.EVENT_BUS.register(ServerHandler.class);
+		MGGuns.registerGun();
 
 	}
 

@@ -4,6 +4,7 @@ import org.felnull.mineguns.MineGuns;
 import org.felnull.mineguns.client.handler.ClientHandler;
 import org.felnull.mineguns.client.handler.KeyHandler;
 import org.felnull.mineguns.client.handler.RenderHandler;
+import org.felnull.mineguns.gun.MGGuns;
 
 import net.minecraftforge.client.event.InputEvent;
 import net.minecraftforge.client.event.RenderHandEvent;
@@ -17,6 +18,7 @@ public class ClientProxy extends CommonProxy {
 	@Override
 	public void preInit() {
 		super.preInit();
+		MGGuns.registerGunAnimation();
 	}
 
 	public static void clientInit() {

@@ -36,6 +36,14 @@ public class MGItems {
 
 	public static void registerItem(IForgeRegistry<Item> r) {
 		registryItem(r, TEST_ITEM);
+		registryItem(r, IRON_GEAR);
+		registryItem(r, IRON_PLATE);
+		registryItem(r, BULLET);
+		registryItem(r, TEST_GUN);
+		registryItem(r, TMP_GUN);
+		registryItem(r, HK433_GUN);
+		registryItem(r, MK23_GUN);
+
 	}
 
 	public static void registryItem(IForgeRegistry<Item> r, Item i) {

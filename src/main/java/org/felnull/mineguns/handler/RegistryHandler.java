@@ -16,7 +16,7 @@ import net.minecraftforge.fml.common.Mod;
 public class RegistryHandler {
 
 	@SubscribeEvent
-	public static void onItemRegistry(final RegistryEvent.Register<Item> e) {
+	public static void onItemsRegistry(final RegistryEvent.Register<Item> e) {
 		MGItems.registerItem(e.getRegistry());
 		MGBlocks.registerItem(e.getRegistry());
 	}
@@ -32,4 +32,5 @@ public class RegistryHandler {
 		MineGuns.LOGGER.info("EntityType Registry...");
 		MGEntitys.registerEntityType(e.getRegistry());
 	}
+
 }
