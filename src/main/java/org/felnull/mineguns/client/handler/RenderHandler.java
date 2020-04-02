@@ -1,6 +1,5 @@
 package org.felnull.mineguns.client.handler;
 
-import org.felnull.mineguns.client.helper.RenderHelper;
 import org.felnull.mineguns.client.render.gun.animaiton.GunAnimation;
 import org.felnull.mineguns.item.GunItem;
 import org.felnull.mineguns.util.GunHelper;
@@ -17,7 +16,6 @@ import net.minecraft.util.HandSide;
 import net.minecraftforge.client.event.RenderHandEvent;
 import net.minecraftforge.client.event.RenderPlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-
 
 public class RenderHandler {
 	public static Minecraft mc = Minecraft.getInstance();
@@ -61,16 +59,15 @@ public class RenderHandler {
 	public void onRenderHand(RenderHandEvent e) {
 		PlayerEntity pl = mc.player;
 		GL11.glPushMatrix();
-
-		RenderHelper.glTranslateflRotatef(KeyHandler.deb_ido_x2, KeyHandler.deb_ido_y2, KeyHandler.deb_ido_z2,
-				KeyHandler.deb_kakudo_x2, KeyHandler.deb_kakudo_y2, KeyHandler.deb_kakudo_z2);
+	//	RenderHelper.glTranslatefRotatef(KeyHandler.deb_ido_x2, KeyHandler.deb_ido_y2, KeyHandler.deb_ido_z2,
+	//		KeyHandler.deb_kakudo_x2, KeyHandler.deb_kakudo_y2, KeyHandler.deb_kakudo_z2);
 
 		if (e.getItemStack().getItem() instanceof GunItem) {
 
 			//	GL11.glTranslatef(0, -e.getEquipProgress() * 3, 0);
 			GunItem gun = (GunItem) e.getItemStack().getItem();
 			GunAnimation animation = gun.getGun().getGunAnimation();
-			animation.renderHand(e.getHand(), e.getItemStack());
+			animation.renderHand(e.getHand(), e.getItemStack(),e);
 			e.setCanceled(true);
 
 		}

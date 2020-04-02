@@ -73,9 +73,9 @@ public class KeyHandler {
 			"key.categories.mineguns.debug");
 
 	public static void init() {
-		set(0.36000004f, 0.3100001f,
-				0.77999973f, 0.0f, 0.0f, 0.2f);
-		//set(0, 0, 0, 0, 0, 0);
+	//	set(0.0050000735f, 0.014000412f, -0.003999809f, 0.0f, 0.0f, 0.199f);
+	//	set(0, 0, 0, 0, 0, 0);
+		set(0, 0, 0, 0, 0, 0);
 	}
 
 	public static void set(float tx, float ty, float tz, float rx, float ry, float rz) {

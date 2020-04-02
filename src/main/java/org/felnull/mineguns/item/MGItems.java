@@ -1,6 +1,5 @@
 package org.felnull.mineguns.item;
 
-import org.felnull.mineguns.MGItemGroup;
 import org.felnull.mineguns.MineGuns;
 import org.felnull.mineguns.gun.MGGuns;
 
@@ -46,7 +45,7 @@ public class MGItems {
 
 	}
 
-	public static void registryItem(IForgeRegistry<Item> r, Item i) {
+	private static void registryItem(IForgeRegistry<Item> r, Item i) {
 		MineGuns.LOGGER.info("Registering Item : " + i.getRegistryName());
 		r.register(i);
 	}

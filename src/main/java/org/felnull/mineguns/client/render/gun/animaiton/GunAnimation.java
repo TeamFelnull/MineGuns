@@ -2,6 +2,8 @@ package org.felnull.mineguns.client.render.gun.animaiton;
 
 import org.felnull.mineguns.util.GunHelper;
 
+import com.mojang.blaze3d.matrix.MatrixStack;
+
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
@@ -20,7 +22,7 @@ public class GunAnimation {
 
 	}
 
-	public void renderHand(Hand hand, ItemStack stack) {
+	public void renderHand(Hand hand, ItemStack stack, RenderHandEvent e) {
 		PlayerEntity pl = mc.player;
 
 		float shotcooldwonpar = ((float) GunHelper.getShotCooldwon(stack) / (float) GunHelper.getBlaze(stack)) * 2;
@@ -33,37 +35,41 @@ public class GunAnimation {
 		if (mc.player.getPrimaryHand() == HandSide.RIGHT) {
 			if (hand == Hand.MAIN_HAND) {
 				if (pl.getHeldItemOffhand().isEmpty())
-					renderRightHand(stack, holdpar, shotcooldwonpar);
+					renderRightHand(e.getMatrixStack(), stack, holdpar, shotcooldwonpar, e.getLight());
 				else
-					renderRightOnryHand(stack, holdpar, shotcooldwonpar);
+					renderRightOnryHand(e.getMatrixStack(), stack, holdpar, shotcooldwonpar, e.getLight());
 			} else
-				renderLeftOnryHand(stack, holdpar, shotcooldwonpar);
+				renderLeftOnryHand(e.getMatrixStack(), stack, holdpar, shotcooldwonpar, e.getLight());
 		} else {
 
 			if (hand == Hand.MAIN_HAND) {
 				if (pl.getHeldItemOffhand().isEmpty())
-					renderLeftHand(stack, holdpar, shotcooldwonpar);
+					renderLeftHand(e.getMatrixStack(), stack, holdpar, shotcooldwonpar, e.getLight());
 				else
-					renderLeftOnryHand(stack, holdpar, shotcooldwonpar);
+					renderLeftOnryHand(e.getMatrixStack(), stack, holdpar, shotcooldwonpar, e.getLight());
 			} else
-				renderRightOnryHand(stack, holdpar, shotcooldwonpar);
+				renderRightOnryHand(e.getMatrixStack(), stack, holdpar, shotcooldwonpar, e.getLight());
 
 		}
 	}
 
-	public void renderRightHand(ItemStack stack, float holdpar, float shotcooldwonpar) {
+	public void renderRightHand(MatrixStack matrixStack, ItemStack stack, float holdpar, float shotcooldwonpar,
+			int light) {
 
 	}
 
-	public void renderLeftHand(ItemStack stack, float holdpar, float shotcooldwonpar) {
+	public void renderLeftHand(MatrixStack matrixStack, ItemStack stack, float holdpar, float shotcooldwonpar,
+			int light) {
 
 	}
 
-	public void renderRightOnryHand(ItemStack stack, float holdpar, float shotcooldwonpar) {
+	public void renderRightOnryHand(MatrixStack matrixStack, ItemStack stack, float holdpar, float shotcooldwonpar,
+			int light) {
 
 	}
 
-	public void renderLeftOnryHand(ItemStack stack, float holdpar, float shotcooldwonpar) {
+	public void renderLeftOnryHand(MatrixStack matrixStack, ItemStack stack, float holdpar, float shotcooldwonpar,
+			int light) {
 
 	}
 

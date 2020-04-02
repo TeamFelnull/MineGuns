@@ -4,10 +4,12 @@ import org.felnull.mineguns.MineGuns;
 import org.felnull.mineguns.block.MGBlocks;
 import org.felnull.mineguns.entity.MGEntitys;
 import org.felnull.mineguns.item.MGItems;
+import org.felnull.mineguns.registries.MGSoundEvents;
 
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityType;
 import net.minecraft.item.Item;
+import net.minecraft.util.SoundEvent;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -22,8 +24,12 @@ public class RegistryHandler {
 	}
 
 	@SubscribeEvent
+	public static void onSoundRegistry(final RegistryEvent.Register<SoundEvent> e) {
+		MGSoundEvents.registerSound(e.getRegistry());
+	}
+
+	@SubscribeEvent
 	public static void onBlockRegistry(final RegistryEvent.Register<Block> e) {
-		MineGuns.LOGGER.info("Block Registry...");
 		MGBlocks.registerBlock(e.getRegistry());
 	}
 

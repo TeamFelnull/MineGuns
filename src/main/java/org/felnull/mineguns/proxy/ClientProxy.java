@@ -4,6 +4,8 @@ import org.felnull.mineguns.MineGuns;
 import org.felnull.mineguns.client.handler.ClientHandler;
 import org.felnull.mineguns.client.handler.KeyHandler;
 import org.felnull.mineguns.client.handler.RenderHandler;
+import org.felnull.mineguns.client.render.entity.BulletRenderer;
+import org.felnull.mineguns.entity.MGEntitys;
 import org.felnull.mineguns.gun.MGGuns;
 
 import net.minecraftforge.client.event.InputEvent;
@@ -13,6 +15,7 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.TickEvent.ClientTickEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
+import net.minecraftforge.fml.client.registry.RenderingRegistry;
 
 public class ClientProxy extends CommonProxy {
 	@Override
@@ -58,6 +61,8 @@ public class ClientProxy extends CommonProxy {
 
 		MinecraftForge.EVENT_BUS.addListener(EventPriority.NORMAL, false, InputEvent.KeyInputEvent.class,
 				new KeyHandler()::onKeyInput);
+		RenderingRegistry.registerEntityRenderingHandler(MGEntitys.BULETT, BulletRenderer::new);
+
 	}
 
 	@Override

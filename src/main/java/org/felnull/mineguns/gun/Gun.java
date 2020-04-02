@@ -1,21 +1,17 @@
 package org.felnull.mineguns.gun;
 
-import java.util.Random;
-
 import org.felnull.mineguns.client.render.gun.animaiton.GunAnimation;
+import org.felnull.mineguns.entity.BulletEntity;
 import org.felnull.mineguns.gun.tyape.GunTyape;
 import org.felnull.mineguns.item.GunItem;
-import org.felnull.mineguns.item.MGItems;
 import org.felnull.mineguns.registries.MGRegistrier;
+import org.felnull.mineguns.registries.MGSoundEvents;
 import org.felnull.mineguns.util.GunHelper;
 
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.projectile.SnowballEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.SoundCategory;
-import net.minecraft.util.SoundEvents;
 import net.minecraft.world.World;
 
 public class Gun {
@@ -50,13 +46,17 @@ public class Gun {
 
 	public void shot(ItemStack itemstack, Entity attacker, World worldIn) {
 		worldIn.playSound((PlayerEntity) null, attacker.func_226277_ct_(), attacker.func_226278_cu_(),
-				attacker.func_226281_cx_(), SoundEvents.BLOCK_IRON_DOOR_OPEN, SoundCategory.NEUTRAL, 0.5F,
-				0.4F / (new Random().nextFloat() * 0.4F + 0.8F));
+				attacker.func_226281_cx_(), MGSoundEvents.GUN_SHOT_HANDGUN, SoundCategory.NEUTRAL, 0.5F, 1);
 		if (!worldIn.isRemote) {
-			SnowballEntity snowballentity = new SnowballEntity(worldIn, (LivingEntity) attacker);
-			snowballentity.func_213884_b(new ItemStack(MGItems.BULLET));
-			snowballentity.shoot(attacker, attacker.rotationPitch, attacker.rotationYaw, 0.0F, 1.5F, 1.0F);
-			worldIn.addEntity(snowballentity);
+
+			//			SnowballEntity snowballentity = new SnowballEntity(worldIn, (LivingEntity) attacker);
+			//			snowballentity.func_213884_b(new ItemStack(MGItems.BULLET));
+			//			snowballentity.shoot(attacker, attacker.rotationPitch, attacker.rotationYaw, 0.0F, 1.5F, 1.0F);
+
+			BulletEntity bullete = new BulletEntity(worldIn);
+			bullete.shoting(attacker.func_226277_ct_(), attacker.func_226280_cw_(), attacker.func_226281_cx_(),
+					attacker.rotationYaw, attacker.rotationPitch);
+			worldIn.addEntity(bullete);
 
 			GunHelper.setShotCooldwon(itemstack, Blaze);
 			GunHelper.setBurstCount(itemstack, GunHelper.getBurstCount(itemstack) + 1);

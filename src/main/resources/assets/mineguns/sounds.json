@@ -1,0 +1,12 @@
+{
+   "gun.shot.handgun": {
+    "sounds": [
+      {
+        "name": "mineguns:gun/handgun/shot",
+        "volume": 1,
+        "pitch": 1
+      }
+    ],
+    "subtitle": "subtitles.gun.shot.handgun"
+  }
+}
