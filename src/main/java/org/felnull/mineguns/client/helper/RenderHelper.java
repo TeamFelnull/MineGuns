@@ -171,8 +171,20 @@ public class RenderHelper {
 	//########### THE IKISUGI ###########
 
 	public static void matrixAllRotateDegreef(MatrixStack ms, float x, float y, float z) {
+		matrixRotateDegreefX(ms, x);
+		matrixRotateDegreefY(ms, y);
+		matrixRotateDegreefZ(ms, z);
+	}
+
+	public static void matrixRotateDegreefX(MatrixStack ms, float x) {
 		ms.func_227863_a_(new Vector3f(1, 0, 0).func_229187_a_(x));
+	}
+
+	public static void matrixRotateDegreefY(MatrixStack ms, float y) {
 		ms.func_227863_a_(new Vector3f(0, 1, 0).func_229187_a_(y));
+	}
+
+	public static void matrixRotateDegreefZ(MatrixStack ms, float z) {
 		ms.func_227863_a_(new Vector3f(0, 0, 1).func_229187_a_(z));
 	}
 

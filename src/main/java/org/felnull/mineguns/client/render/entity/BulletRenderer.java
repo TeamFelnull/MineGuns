@@ -29,12 +29,14 @@ public class BulletRenderer extends EntityRenderer<BulletEntity> {
 			IRenderTypeBuffer p_225623_5_, int p_225623_6_) {
 		RenderHelper.matrixPush(matx);
 
-		RenderHelper.matrixMaster(matx, 1, 0.0050000735f,
-				0.014000412f + (-0.0143f / 90 * OEMath.positiveFloat(entity.rotationPitch)), -0.003999809f,
-				-entity.rotationPitch + (OEMath.isRangeIn(OEMath.positiveFloat(entity.rotationYaw), 0, 180)
-						? OEMath.positiveFloat(entity.rotationYaw)
-						: -OEMath.positiveFloat(entity.rotationYaw)),
-				180 - entity.rotationYaw, 0);
+		RenderHelper.matrixScalf(matx, 1, 1, 1);
+		RenderHelper.matrixTranslatef(matx, 00.0050000735f,
+				0.014000412f + (-0.0143f / 90 * OEMath.positiveFloat(entity.rotationPitch)), -0.003999809f);
+
+		RenderHelper.matrixRotateDegreefY(matx, 180 - entity.rotationYaw);
+		RenderHelper.matrixRotateDegreefX(matx, -entity.rotationPitch);
+		RenderHelper.matrixRotateDegreefZ(matx, 0);
+
 		Minecraft.getInstance().getItemRenderer().func_229110_a_(new ItemStack(MGItems.BULLET),
 				ItemCameraTransforms.TransformType.GROUND, p_225623_6_,
 				OverlayTexture.field_229196_a_, matx,

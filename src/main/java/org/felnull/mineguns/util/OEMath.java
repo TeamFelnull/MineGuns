@@ -17,6 +17,12 @@ public class OEMath {
 		return positiveInt(r);
 	}
 
+	public static float differenceFloat(float n1, float n2) {
+		float r = n1 - n2;
+
+		return positiveFloat(r);
+	}
+
 	public static int averageInt(int... n) {
 		int r = 0;
 		for (int a : n) {

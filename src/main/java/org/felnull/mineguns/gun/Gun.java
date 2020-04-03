@@ -9,7 +9,9 @@ import org.felnull.mineguns.registries.MGSoundEvents;
 import org.felnull.mineguns.util.GunHelper;
 
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.projectile.SnowballEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
@@ -49,9 +51,9 @@ public class Gun {
 				attacker.func_226281_cx_(), MGSoundEvents.GUN_SHOT_HANDGUN, SoundCategory.NEUTRAL, 0.5F, 1);
 		if (!worldIn.isRemote) {
 
-			//			SnowballEntity snowballentity = new SnowballEntity(worldIn, (LivingEntity) attacker);
+					SnowballEntity snowballentity = new SnowballEntity(worldIn, (LivingEntity) attacker);
 			//			snowballentity.func_213884_b(new ItemStack(MGItems.BULLET));
-			//			snowballentity.shoot(attacker, attacker.rotationPitch, attacker.rotationYaw, 0.0F, 1.5F, 1.0F);
+					snowballentity.shoot(attacker, attacker.rotationPitch, attacker.rotationYaw, 0.0F, 1.5F, 1.0F);
 
 			BulletEntity bullete = new BulletEntity(worldIn);
 			bullete.shoting(attacker.func_226277_ct_(), attacker.func_226280_cw_(), attacker.func_226281_cx_(),
